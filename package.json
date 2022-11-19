@@ -1,0 +1,9 @@
+{
+  "name": "gpxedit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:andersnylund/gpxedit.git",
+  "author": "Anders Nylund <anders@nylund.co>",
+  "license": "MIT",
+  "private": true
+}
