@@ -38,8 +38,14 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-${{ runner.node }}-${{ hashFiles('**/pnpm-lock.yaml') }}-nextjs
 
-      - name: Build and test
-        run: pnpm prep-sqlite && pnpm build-sqlite && pnpm test-start && pnpm test-dev
+      - name: Build
+        run: pnpm build
+
+      - name: e2e test
+        run: pnpm test:start
+
+      - name: Unit test
+        run: pnpm test:unit
 
       - name: Upload test results
         if: ${{ always() }}
