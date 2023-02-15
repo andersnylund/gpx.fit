@@ -16,11 +16,13 @@ export const Dropzone = () => {
         const text = await file.text();
         const gpx = new gpxParser();
         gpx.parse(text);
-        const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
-          latitude: point.lat,
-          longitude: point.lon,
-        }));
-        dispatch(setRoute(coordinates));
+        if (gpx.tracks[0]) {
+          const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
+            latitude: point.lat,
+            longitude: point.lon,
+          }));
+          dispatch(setRoute(coordinates));
+        }
       }
     };
     parseFile();
