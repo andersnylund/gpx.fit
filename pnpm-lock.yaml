@@ -21,6 +21,7 @@ specifiers:
   react-leaflet: ^4.2.0
   react-redux: ^8.0.5
   typescript: 4.9.3
+  zod: ^3.20.6
 
 dependencies:
   '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
@@ -32,6 +33,7 @@ dependencies:
   react-dropzone: 14.2.3_react@18.2.0
   react-leaflet: 4.2.0_yydtlhsdonbqao6vgvkwhv2zki
   react-redux: 8.0.5_2zx2umvpluuhvlq44va5bta2da
+  zod: 3.20.6
 
 devDependencies:
   '@types/leaflet': 1.9.0
@@ -3005,3 +3007,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.20.6:
+    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+    dev: false

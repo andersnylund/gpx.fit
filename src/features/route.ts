@@ -1,6 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { LatLng } from 'leaflet';
 
 export interface Coordinate {
   latitude: number;
