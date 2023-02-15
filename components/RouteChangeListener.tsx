@@ -1,4 +1,4 @@
-import { LatLng, LatLngBounds, LatLngBoundsExpression } from 'leaflet';
+import { LatLng, LatLngBounds } from 'leaflet';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { Coordinate } from '../features/route';

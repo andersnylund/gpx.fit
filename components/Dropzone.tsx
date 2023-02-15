@@ -14,7 +14,7 @@ export const Dropzone = () => {
       const file = acceptedFiles[0];
       if (file) {
         const text = await file.text();
-        var gpx = new gpxParser();
+        const gpx = new gpxParser();
         gpx.parse(text);
         const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
           latitude: point.lat,

@@ -1,6 +1,6 @@
 import { LatLng } from 'leaflet';
 import { ReactElement } from 'react';
-import { Polyline, useMap } from 'react-leaflet';
+import { Polyline } from 'react-leaflet';
 import { useAppSelector } from '../hooks';
 
 export const Route = (): ReactElement | null => {
