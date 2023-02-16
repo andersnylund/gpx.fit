@@ -1,14 +1,18 @@
 import 'leaflet/dist/leaflet.css';
 import type { AppProps } from 'next/app';
+import 'normalize.css';
 import { Provider } from 'react-redux';
-import { store } from '../store';
-import '../styles/globals.css';
+import { GlobalStyles } from '~/components/GlobalStyles';
+import { store } from '~/store';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <>
+      <GlobalStyles />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </>
   );
 }
 

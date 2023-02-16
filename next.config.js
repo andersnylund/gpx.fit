@@ -30,4 +30,7 @@ module.exports = getConfig({
   pageExtensions: ['page.tsx', 'api.ts'],
   /** We run eslint as a separate task in CI */
   eslint: { ignoreDuringBuilds: !!process.env.CI },
+  compiler: {
+    styledComponents: true,
+  },
 });
