@@ -9,6 +9,7 @@ const opts = {
   headless: !!process.env.CI || !!process.env.PLAYWRIGHT_HEADLESS,
   // collectCoverage: !!process.env.PLAYWRIGHT_HEADLESS
 };
+
 const config: PlaywrightTestConfig = {
   testDir: './playwright',
   timeout: 35e3,

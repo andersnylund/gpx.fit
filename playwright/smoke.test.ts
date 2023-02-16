@@ -1,10 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.setTimeout(35e3);
 
 test('go to /', async ({ page }) => {
   await page.goto('/');
-
   page.getByText(`Drag 'n' drop some files here, or click to select files`);
 });
 
