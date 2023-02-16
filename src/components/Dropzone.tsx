@@ -1,6 +1,7 @@
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
+import styled from 'styled-components';
 import { Coordinate, setRoute } from '../features/route';
 import { useAppDispatch } from '../hooks';
 
@@ -29,13 +30,22 @@ export const Dropzone = () => {
   }, [acceptedFiles, dispatch]);
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
-        <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
-      )}
-    </div>
+    <DropzoneContainer>
+      <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          <p>Drop the files here ...</p>
+        ) : (
+          <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
+        )}
+      </div>
+    </DropzoneContainer>
   );
 };
+
+const DropzoneContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+`;
