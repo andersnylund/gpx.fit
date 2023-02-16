@@ -1,8 +1,19 @@
 import type { NextPage } from 'next';
+import styled from 'styled-components';
+import { Dropzone } from '~/components/Dropzone';
 import { Map } from '../components/Map';
 
-const Home: NextPage = () => {
-  return <Map />;
+const Index: NextPage = () => {
+  return (
+    <IndexPageContainer>
+      <Map />
+      <Dropzone />
+    </IndexPageContainer>
+  );
 };
 
-export default Home;
+const IndexPageContainer = styled.div`
+  height: 100vh;
+`;
+
+export default Index;
