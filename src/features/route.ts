@@ -6,23 +6,25 @@ export interface Coordinate {
   longitude: number;
 }
 
-export interface RouteState {
+export interface RoutesState {
   route?: Coordinate[];
+  selectedRoute?: Coordinate[];
 }
 
-const initialState: RouteState = {};
+const initialState: RoutesState = {};
 
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: 'routes',
   initialState,
   reducers: {
     setRoute: (state, action: PayloadAction<Coordinate[]>) => {
       state.route = action.payload;
     },
+    setSelectedRoute: (state, action: PayloadAction<Coordinate[]>) => {
+      state.selectedRoute = action.payload;
+    },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setRoute } = counterSlice.actions;
-
-export const routeReducer = counterSlice.reducer;
+export const { setRoute, setSelectedRoute } = counterSlice.actions;
+export const routesReducer = counterSlice.reducer;

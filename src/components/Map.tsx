@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { Route } from './Route';
 import { RouteChangeListener } from './RouteChangeListener';
+import { SelectedRoute } from './SelectedRoute';
 
 export const Map = (): ReactElement => {
   return (
@@ -11,6 +12,7 @@ export const Map = (): ReactElement => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Route />
+      <SelectedRoute />
       <RouteChangeListener />
     </MapContainer>
   );

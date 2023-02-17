@@ -4,7 +4,7 @@ import { Polyline } from 'react-leaflet';
 import { useAppSelector } from '../hooks';
 
 export const Route = (): ReactElement | null => {
-  const route = useAppSelector((state) => state.route.route);
+  const route = useAppSelector((state) => state.routes.route);
 
   if (route) {
     const positions = route.map(({ latitude, longitude }) => new LatLng(latitude, longitude));

@@ -10,6 +10,7 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
   '@types/leaflet': ^1.9.0
+  '@types/lodash.debounce': ^4.0.7
   '@types/node': 18.13.0
   '@types/react': 18.0.28
   '@types/testing-library__jest-dom': ^5.14.5
@@ -24,8 +25,10 @@ specifiers:
   eslint-plugin-react: ^7.32.2
   eslint-plugin-react-hooks: ^4.6.0
   gpxparser: ^3.0.8
+  immer: ^9.0.19
   jsdom: ^21.1.0
   leaflet: ^1.9.3
+  lodash.debounce: ^4.0.8
   next: 13.1.6
   normalize.css: ^8.0.1
   npm-run-all: ^4.1.5
@@ -49,7 +52,9 @@ dependencies:
   '@mui/material': 5.11.9_acl7mc3llczqccvmbrsweq6vga
   '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
   gpxparser: 3.0.8
+  immer: 9.0.19
   leaflet: 1.9.3
+  lodash.debounce: 4.0.8
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
   normalize.css: 8.0.1
   react: 18.2.0
@@ -65,6 +70,7 @@ devDependencies:
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 14.0.0_biqbaboplfbrettd7655fr4n2y
   '@types/leaflet': 1.9.0
+  '@types/lodash.debounce': 4.0.7
   '@types/node': 18.13.0
   '@types/react': 18.0.28
   '@types/testing-library__jest-dom': 5.14.5
@@ -1276,6 +1282,16 @@ packages:
     resolution: {integrity: sha512-7LeOSj7EloC5UcyOMo+1kc3S1UT3MjJxwqsMT1d2PTyvQz53w0Y0oSSk9nwZnOZubCmBvpSNGceucxiq+ZPEUw==}
     dependencies:
       '@types/geojson': 7946.0.10
+    dev: true
+
+  /@types/lodash.debounce/4.0.7:
+    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
   /@types/node/18.13.0:
@@ -3674,6 +3690,10 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
+
+  /lodash.debounce/4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
