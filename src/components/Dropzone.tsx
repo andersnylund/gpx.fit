@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Add } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import { Button } from '@mui/material';
 import gpxParser from 'gpxparser';
@@ -35,11 +36,12 @@ export const Dropzone = () => {
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      <Dropbox />
       {isDragActive ? (
-        <Dropbox />
+        <Dropbox>
+          <Add color={'success'} />
+        </Dropbox>
       ) : (
-        <Button color="primary" variant="contained">
+        <Button title="Add gpx file" color="primary" variant="contained">
           <FileOpenIcon />
         </Button>
       )}
@@ -48,9 +50,15 @@ export const Dropzone = () => {
 };
 
 const Dropbox = styled.div(
-  ({ theme }) => `
-    height: 48px;
-    width: 48px;
-    ${console.log(theme)};
+  ({ theme }) => css`
+    align-items: center;
+    background-color: ${theme.palette.background.default};
+    border-color: ${theme.palette.divider};
+    border-radius: 8px;
+    border-style: dashed;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    width: 64px;
   `
 );
