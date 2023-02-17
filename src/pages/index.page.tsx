@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import type { NextPage } from 'next';
-import { Dropzone } from '~/components/Dropzone';
+import { FileControls } from '~/components/FileControls';
 import { Map } from '~/components/Map';
 
 const Index: NextPage = () => {
   return (
     <IndexPageContainer>
       <Map />
-      <Dropzone />
+      <FileControls />
     </IndexPageContainer>
   );
 };

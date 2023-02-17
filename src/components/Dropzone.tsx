@@ -1,4 +1,7 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import FileOpenIcon from '@mui/icons-material/FileOpen';
+import { Button } from '@mui/material';
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
@@ -30,22 +33,24 @@ export const Dropzone = () => {
   }, [acceptedFiles, dispatch]);
 
   return (
-    <DropzoneContainer>
-      <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Drag &apos;n&apos; drop some files here, or click to select files</p>
-        )}
-      </div>
-    </DropzoneContainer>
+    <div {...getRootProps()}>
+      <input {...getInputProps()} />
+      <Dropbox />
+      {isDragActive ? (
+        <Dropbox />
+      ) : (
+        <Button color="primary" variant="contained">
+          <FileOpenIcon />
+        </Button>
+      )}
+    </div>
   );
 };
 
-const DropzoneContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1000;
-`;
+const Dropbox = styled.div(
+  ({ theme }) => `
+    height: 48px;
+    width: 48px;
+    ${console.log(theme)};
+  `
+);
