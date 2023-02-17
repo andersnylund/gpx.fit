@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import type { NextPage } from 'next';
-import styled from 'styled-components';
 import { Dropzone } from '~/components/Dropzone';
-import { Map } from '../components/Map';
+import { Map } from '~/components/Map';
 
 const Index: NextPage = () => {
   return (

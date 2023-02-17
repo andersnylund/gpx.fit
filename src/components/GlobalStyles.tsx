@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
+import { css, Global } from '@emotion/react';
 
 const globalStyle = css`
   html,
@@ -19,6 +19,10 @@ const globalStyle = css`
   }
 `;
 
-export const GlobalStyles = createGlobalStyle`
-  ${globalStyle}
-`;
+export const GlobalStyles = () => (
+  <Global
+    styles={css`
+      ${globalStyle}
+    `}
+  />
+);

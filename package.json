@@ -14,6 +14,10 @@
     "test:start": "start-server-and-test 'next start' http://127.0.0.1:3000 test:e2e"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.9",
     "@reduxjs/toolkit": "^1.9.2",
     "gpxparser": "^3.0.8",
     "leaflet": "^1.9.3",
@@ -25,7 +29,6 @@
     "react-is": "^18.2.0",
     "react-leaflet": "^4.2.0",
     "react-redux": "^8.0.5",
-    "styled-components": "^5.3.6",
     "zod": "^3.20.6"
   },
   "devDependencies": {
@@ -35,7 +38,6 @@
     "@types/leaflet": "^1.9.0",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
-    "@types/styled-components": "^5.1.26",
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",

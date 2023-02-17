@@ -1,7 +1,7 @@
+import styled from '@emotion/styled';
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import styled from 'styled-components';
 import { Coordinate, setRoute } from '../features/route';
 import { useAppDispatch } from '../hooks';
 
