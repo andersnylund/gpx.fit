@@ -1,4 +1,6 @@
 import { css, Global } from '@emotion/react';
+import { blueGrey, deepOrange } from '@mui/material/colors';
+import { createTheme } from '@mui/material/styles';
 
 const globalStyle = css`
   html,
@@ -26,3 +28,14 @@ export const GlobalStyles = () => (
     `}
   />
 );
+
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: deepOrange[500],
+    },
+    secondary: {
+      main: blueGrey[500],
+    },
+  },
+});

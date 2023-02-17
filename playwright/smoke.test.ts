@@ -2,9 +2,11 @@ import { expect, test } from '@playwright/test';
 
 test.setTimeout(35e3);
 
-test('go to /', async ({ page }) => {
-  await page.goto('/');
-  page.getByText(`Drag 'n' drop some files here, or click to select files`);
+test('frontpage', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await page.getByRole('button', { name: 'Add gpx file' }).click();
+  await page.getByRole('button', { name: 'Zoom out' }).click();
+  await page.getByRole('button', { name: 'Zoom in' }).click();
 });
 
 test('test 404', async ({ page }) => {
@@ -19,5 +21,5 @@ test('server-side rendering test', async ({ browser }) => {
   });
   const ssrPage = await ssrContext.newPage();
   await ssrPage.goto('/');
-  expect(await ssrPage.content()).toContain("Drag 'n' drop some files here, or click to select files");
+  expect(await ssrPage.content()).toContain('Add gpx file');
 });
