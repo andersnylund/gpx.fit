@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { Route } from './Route';
 import { RouteChangeListener } from './RouteChangeListener';
-import { SelectedRoute } from './SelectedRoute';
+import { SelectedRoute } from './route/SelectedRoute';
 
 export const Map = (): ReactElement => {
   return (

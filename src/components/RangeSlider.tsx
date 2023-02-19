@@ -1,6 +1,6 @@
 import { Slider } from '@mui/material';
 import { produce } from 'immer';
-import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { Coordinate, setSelectedRoute } from '~/features/route';
@@ -10,7 +10,7 @@ import { AppDispatch } from '~/store';
 const sliderSchema = z.tuple([z.number(), z.number()]);
 type Values = z.infer<typeof sliderSchema>;
 
-const debouncedOnChange = debounce((values: Values, track: Coordinate[], dispatch: AppDispatch) => {
+const debouncedOnChange = throttle((values: Values, track: Coordinate[], dispatch: AppDispatch) => {
   const selectedRoute = produce(track, (draftTrack) => {
     return draftTrack.slice(values[0], values[1]);
   });

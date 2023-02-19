@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import type { NextPage } from 'next';
-import { FileControls } from '~/components/FileControls';
+import { FileControls } from '~/components/file/FileControls';
 import { Map } from '~/components/Map';
-import { TrackControls } from '~/components/TrackControls';
+import { TrackControls } from '~/components/route/TrackControls';
 
 const Index: NextPage = () => {
   return (

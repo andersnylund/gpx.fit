@@ -6,8 +6,8 @@ import { Button } from '@mui/material';
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Coordinate, setRoute } from '../features/route';
-import { useAppDispatch } from '../hooks';
+import { Coordinate, setRoute } from '../../features/route';
+import { useAppDispatch } from '../../hooks';
 
 export const Dropzone = () => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({});

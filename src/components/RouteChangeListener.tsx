@@ -28,7 +28,7 @@ const getBounds = (points: Coordinate[]): LatLngBounds => {
   return new LatLngBounds(new LatLng(mostSouth, mostWest), new LatLng(mostNorth, mostEast));
 };
 
-export const RouteChangeListener = (): null => {
+export const RouteChangeListener = () => {
   const route = useAppSelector((state) => state.routes.route);
   const selectedRoute = useAppSelector((state) => state.routes.selectedRoute);
   const map = useMap();

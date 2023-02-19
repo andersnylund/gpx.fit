@@ -19,6 +19,7 @@ export const counterSlice = createSlice({
   reducers: {
     setRoute: (state, action: PayloadAction<Coordinate[]>) => {
       state.route = action.payload;
+      state.selectedRoute = undefined;
     },
     setSelectedRoute: (state, action: PayloadAction<Coordinate[]>) => {
       state.selectedRoute = action.payload;

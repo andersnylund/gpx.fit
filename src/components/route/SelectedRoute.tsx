@@ -1,8 +1,8 @@
 import { LatLng } from 'leaflet';
 import { ReactElement } from 'react';
 import { Polyline } from 'react-leaflet';
-import { useAppSelector } from '../hooks';
-import { theme } from './GlobalStyles';
+import { useAppSelector } from '../../hooks';
+import { theme } from '../GlobalStyles';
 
 export const SelectedRoute = (): ReactElement | null => {
   const selectedRoute = useAppSelector((state) => state.routes.selectedRoute);

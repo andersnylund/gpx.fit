@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { RangeSlider } from './RangeSlider';
+import { RangeSlider } from '../RangeSlider';
 
 export const TrackControls = () => {
   return (
