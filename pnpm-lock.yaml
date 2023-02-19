@@ -3,7 +3,9 @@ lockfileVersion: 5.4
 specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
+  '@fontsource/public-sans': ^4.5.12
   '@mui/icons-material': ^5.11.9
+  '@mui/joy': 5.0.0-alpha.67
   '@mui/material': ^5.11.9
   '@playwright/test': ^1.26.1
   '@reduxjs/toolkit': ^1.9.2
@@ -48,7 +50,9 @@ specifiers:
 dependencies:
   '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
+  '@fontsource/public-sans': 4.5.12
   '@mui/icons-material': 5.11.9_ofpk46txu7v2f5mzrtv4xsczka
+  '@mui/joy': 5.0.0-alpha.67_acl7mc3llczqccvmbrsweq6vga
   '@mui/material': 5.11.9_acl7mc3llczqccvmbrsweq6vga
   '@reduxjs/toolkit': 1.9.2_k4ae6lp43ej6mezo3ztvx6pykq
   gpxparser: 3.0.8
@@ -673,6 +677,10 @@ packages:
       - supports-color
     dev: true
 
+  /@fontsource/public-sans/4.5.12:
+    resolution: {integrity: sha512-sa6lr+lQQB1Iif2xyWZmcCbReV3dj6m0CNXw5xbDwKO4BPeZxz+G+Vy9zWdzhaKpjmK6Ap2wIn1x79XVcvMRtQ==}
+    dev: false
+
   /@hapi/hoek/9.3.0:
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
     dev: true
@@ -810,6 +818,40 @@ packages:
       '@mui/material': 5.11.9_acl7mc3llczqccvmbrsweq6vga
       '@types/react': 18.0.28
       react: 18.2.0
+    dev: false
+
+  /@mui/joy/5.0.0-alpha.67_acl7mc3llczqccvmbrsweq6vga:
+    resolution: {integrity: sha512-Hol7tYXtSPcl1pApn6fpVdr2NFbftlXWaP5ql2AJ2VGo/MfInIatHYBR+QtGbn+XLDuOnhSYh/wHDL9u3xzlaQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@emotion/react': ^11.5.0
+      '@emotion/styled': ^11.3.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/react':
+        optional: true
+      '@emotion/styled':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.20.13
+      '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
+      '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
+      '@mui/base': 5.0.0-alpha.118_zula6vjvt3wdocc4mwcxqa6nzi
+      '@mui/core-downloads-tracker': 5.11.9
+      '@mui/system': 5.11.9_teoksulxetwanny5ohzazahldq
+      '@mui/types': 7.2.3_@types+react@18.0.28
+      '@mui/utils': 5.11.9_react@18.2.0
+      '@types/react': 18.0.28
+      clsx: 1.2.1
+      csstype: 3.1.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-is: 18.2.0
     dev: false
 
   /@mui/material/5.11.9_acl7mc3llczqccvmbrsweq6vga:

@@ -1,10 +1,10 @@
-import { Slider } from '@mui/material';
+import { Slider } from '@mui/joy';
 import { produce } from 'immer';
 import throttle from 'lodash.throttle';
 import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { Coordinate, setSelectedRoute } from '~/features/route';
-import { useAppDispatch, useAppSelector } from '~/hooks';
+import { useAppDispatch } from '~/hooks';
 import { AppDispatch } from '~/store';
 
 const sliderSchema = z.tuple([z.number(), z.number()]);
@@ -17,21 +17,18 @@ const debouncedOnChange = throttle((values: Values, track: Coordinate[], dispatc
   dispatch(setSelectedRoute(selectedRoute));
 }, 100);
 
-export const RangeSlider = () => {
-  const route = useAppSelector((state) => state.routes.route);
+interface Props {
+  route: Coordinate[];
+}
+
+export const RangeSlider = ({ route }: Props) => {
   const dispatch = useAppDispatch();
 
   const [values, setValues] = useState([0, 0]);
 
   useEffect(() => {
-    if (route) {
-      setValues([1, route.length]);
-    }
+    setValues([1, route.length]);
   }, [route]);
-
-  if (!route) {
-    return null;
-  }
 
   const routeLength = route.length;
 
@@ -47,6 +44,7 @@ export const RangeSlider = () => {
           debouncedOnChange(data, route, dispatch);
         }
       }}
+      variant="soft"
       min={1}
       max={routeLength}
       valueLabelDisplay="auto"
