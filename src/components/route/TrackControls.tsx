@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { useAppSelector } from '~/hooks';
-import { Treshold } from '../file/Treshold';
 import { RangeSlider } from '../RangeSlider';
+import { Treshold } from './Treshold';
 
 export const TrackControls = () => {
   const route = useAppSelector((state) => state.routes.route);
+
   if (!route) {
     return null;
   }

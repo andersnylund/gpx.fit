@@ -9,6 +9,7 @@ export interface Coordinate {
 export interface RoutesState {
   route?: Coordinate[];
   selectedRoute?: Coordinate[];
+  smoothenedRoute?: Coordinate[];
 }
 
 const initialState: RoutesState = {};
@@ -20,12 +21,16 @@ export const counterSlice = createSlice({
     setRoute: (state, action: PayloadAction<Coordinate[]>) => {
       state.route = action.payload;
       state.selectedRoute = undefined;
+      state.smoothenedRoute = undefined;
     },
     setSelectedRoute: (state, action: PayloadAction<Coordinate[]>) => {
       state.selectedRoute = action.payload;
     },
+    setSmoothenedRoute: (state, action: PayloadAction<Coordinate[]>) => {
+      state.smoothenedRoute = action.payload;
+    },
   },
 });
 
-export const { setRoute, setSelectedRoute } = counterSlice.actions;
+export const { setRoute, setSelectedRoute, setSmoothenedRoute } = counterSlice.actions;
 export const routesReducer = counterSlice.reducer;

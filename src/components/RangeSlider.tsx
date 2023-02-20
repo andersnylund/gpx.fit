@@ -10,7 +10,7 @@ import { AppDispatch } from '~/store';
 const sliderSchema = z.tuple([z.number(), z.number()]);
 type Values = z.infer<typeof sliderSchema>;
 
-const debouncedOnChange = throttle((values: Values, track: Coordinate[], dispatch: AppDispatch) => {
+const throttledOnChange = throttle((values: Values, track: Coordinate[], dispatch: AppDispatch) => {
   const selectedRoute = produce(track, (draftTrack) => {
     return draftTrack.slice(values[0], values[1]);
   });
@@ -41,11 +41,11 @@ export const RangeSlider = ({ route }: Props) => {
         if (parsedValues.success) {
           const data = parsedValues.data;
           setValues(data);
-          debouncedOnChange(data, route, dispatch);
+          throttledOnChange(data, route, dispatch);
         }
       }}
       variant="soft"
-      min={1}
+      min={0}
       max={routeLength}
       valueLabelDisplay="auto"
       getAriaValueText={(value) => value.toString()}
