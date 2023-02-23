@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
-import { Add } from '@mui/icons-material';
-import FileOpenIcon from '@mui/icons-material/FileOpen';
+import { Add, FileOpen } from '@mui/icons-material';
 import { Button } from '@mui/joy';
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
@@ -41,7 +40,7 @@ export const Dropzone = () => {
         </Dropbox>
       ) : (
         <Button title="Add gpx file" color="neutral" variant="soft">
-          <FileOpenIcon />
+          <FileOpen />
         </Button>
       )}
     </div>
