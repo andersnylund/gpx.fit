@@ -2,6 +2,10 @@ import matchers from '@testing-library/jest-dom/matchers';
 import { cleanup } from '@testing-library/react';
 import { afterEach, expect, vi } from 'vitest';
 
+vi.mock('~/config/env-browser', () => ({
+  env: { NEXT_PUBLIC_SITE_ENV: 'test' },
+}));
+
 // extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
 

@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { Add } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import { Button } from '@mui/joy';
-import gpxParser from 'gpxparser';
+import GpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Coordinate, setRoute } from '../../features/route';
-import { useAppDispatch } from '../../hooks';
+import { Coordinate, setRoute } from '~/features/route';
+import { useAppDispatch } from '~/hooks';
 
 export const Dropzone = () => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({});
@@ -18,7 +18,7 @@ export const Dropzone = () => {
       const file = acceptedFiles[0];
       if (file) {
         const text = await file.text();
-        const gpx = new gpxParser();
+        const gpx = new GpxParser();
         gpx.parse(text);
         if (gpx.tracks[0]) {
           const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
