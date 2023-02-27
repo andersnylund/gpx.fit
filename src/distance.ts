@@ -16,9 +16,11 @@ export const getDistanceBetweenTwoPoints = (cord1: Coordinate, cord2: Coordinate
 
   let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
 
+  /* c8 ignore start */
   if (dist > 1) {
     dist = 1;
   }
+  /* c8 ignore stop */
 
   dist = Math.acos(dist);
   dist = (dist * 180) / Math.PI;
