@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Add } from '@mui/icons-material';
 import FileOpenIcon from '@mui/icons-material/FileOpen';
 import { Button } from '@mui/joy';
-import GpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Coordinate, setRoute } from '~/features/route';
@@ -17,6 +16,7 @@ export const Dropzone = () => {
     const parseFile = async () => {
       const file = acceptedFiles[0];
       if (file) {
+        const GpxParser = (await import('gpxparser')).default;
         const text = await file.text();
         const gpx = new GpxParser();
         gpx.parse(text);
