@@ -1,6 +1,6 @@
 // @ts-check
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { env } = require('./src/env');
+const { env } = require('./src/config/env');
 
 /**
  * Don't be scared of the generics here.
