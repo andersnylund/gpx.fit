@@ -27,14 +27,14 @@ export const RangeSlider = ({ route }: Props) => {
   const [values, setValues] = useState([0, 0]);
 
   useEffect(() => {
-    setValues([1, route.length]);
+    setValues([0, route.length]);
   }, [route]);
 
   const routeLength = route.length;
 
   return (
     <Slider
-      getAriaLabel={() => 'Track start and endpoint'}
+      getAriaLabel={(index) => `Track ${index === 0 ? 'start' : 'end'}point`}
       value={values}
       onChange={(e, values) => {
         const parsedValues = sliderSchema.safeParse(values);
@@ -48,7 +48,7 @@ export const RangeSlider = ({ route }: Props) => {
       min={0}
       max={routeLength}
       valueLabelDisplay="auto"
-      getAriaValueText={(value) => value.toString()}
+      getAriaValueText={(value) => `Track point number ${value.toString()}`}
     />
   );
 };
