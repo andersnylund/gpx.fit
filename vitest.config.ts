@@ -15,10 +15,10 @@ export default defineConfig({
     coverage: {
       all: true,
       enabled: true,
-      branches: 64,
+      branches: 74,
       functions: 54,
-      lines: 51,
-      statements: 51,
+      lines: 55,
+      statements: 55,
       exclude: [
         'src/config/**',
         '.next/',

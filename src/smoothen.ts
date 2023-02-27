@@ -1,11 +1,12 @@
-import { Coordinate } from './features/route';
 import { produce } from 'immer';
+import { equals, uniqWith } from 'remeda';
 import { getDistanceBetweenTwoPoints } from './distance';
+import { Coordinate } from './features/route';
 
 export const smoothen = (route: Coordinate[], treshold: number) => {
   const result = recursively([], route, treshold);
   const lastPoint = route[route.length - 1];
-  return [...result, ...(lastPoint ? [lastPoint] : [])];
+  return uniqWith([...result, ...(lastPoint ? [lastPoint] : [])], equals);
 };
 
 function toEntries<T>(a: T[]) {
@@ -13,10 +14,6 @@ function toEntries<T>(a: T[]) {
 }
 
 const recursively = (previouslySmoothened: Coordinate[], remainder: Coordinate[], treshold: number): Coordinate[] => {
-  if (remainder.length === 0) {
-    return previouslySmoothened;
-  }
-
   const firstPoint = remainder[0];
   if (!firstPoint) return previouslySmoothened;
 
