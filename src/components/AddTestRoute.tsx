@@ -2,7 +2,7 @@ import { Button } from '@mui/joy';
 import { setRoute } from '~/features/route';
 import { useAppDispatch } from '~/hooks';
 
-const testRoute = [
+export const testRoute = [
   {
     latitude: 63.106377,
     longitude: 21.59627,

@@ -9,7 +9,7 @@ const initialState: TresholdState = {
   treshold: 10,
 };
 
-export const tresholdSlice = createSlice({
+const tresholdSlice = createSlice({
   name: 'treshold',
   initialState,
   reducers: {
