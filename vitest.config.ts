@@ -15,10 +15,10 @@ export default defineConfig({
     coverage: {
       all: true,
       enabled: true,
-      branches: 82,
-      functions: 54,
-      lines: 57,
-      statements: 57,
+      branches: 95.83,
+      functions: 87.03,
+      lines: 89.65,
+      statements: 89.65,
       exclude: [
         'src/config/**',
         '.next/',
@@ -27,6 +27,7 @@ export default defineConfig({
         'playwright.config.ts',
         'playwright/**',
         'vitest.config.ts',
+        '**/*.test.*',
       ],
       provider: 'c8',
     },

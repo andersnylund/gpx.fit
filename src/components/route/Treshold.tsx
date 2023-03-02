@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Input } from '@mui/joy';
-import { debounce } from '@mui/material';
+import debounce from 'lodash.debounce';
 import { useEffect, useState } from 'react';
 import { z } from 'zod';
 import { Coordinate, setSmoothenedRoute } from '~/features/route';
