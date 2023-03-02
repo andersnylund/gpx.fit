@@ -1,7 +1,8 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import produce from 'immer';
 import { it, vi } from 'vitest';
-import { setSelectedRoute } from '~/features/route';
+import { setSelectedRoute, setSmoothenedRoute } from '~/features/route';
+import { setTreshold } from '~/features/treshold';
 import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
 import { RangeSlider } from './RangeSlider';
@@ -40,6 +41,7 @@ const testRoute = [
 describe('<RangeSlider />', () => {
   it('dispatches correct action when changing range', async () => {
     const store = createStore();
+    store.dispatch(setTreshold(50));
     const dispatch = vi.spyOn(store, 'dispatch');
     render(
       <TestProvider store={store}>
@@ -59,6 +61,9 @@ describe('<RangeSlider />', () => {
           })
         )
       );
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      const expected = [testRoute[1]!, testRoute[testRoute.length - 1]!];
+      expect(dispatch).toHaveBeenCalledWith(setSmoothenedRoute(expected));
     });
   });
 });
