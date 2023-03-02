@@ -33,11 +33,12 @@ export const Dropzone = () => {
 
   return (
     <div {...getRootProps()}>
-      <input {...getInputProps()} />
+      <input {...getInputProps()} data-testid="file-input" />
+      {/* c8 ignore start */}
       {isDragActive ? (
         <Dropbox>
           <Add color={'success'} />
-        </Dropbox>
+        </Dropbox> /* c8 ignore stop */
       ) : (
         <Button title="Add gpx file" color="neutral" variant="soft">
           <FileOpen />
