@@ -14,7 +14,7 @@ export interface RoutesState {
 
 const initialState: RoutesState = {};
 
-export const counterSlice = createSlice({
+const counterSlice = createSlice({
   name: 'routes',
   initialState,
   reducers: {
