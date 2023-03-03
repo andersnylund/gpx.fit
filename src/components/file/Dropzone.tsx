@@ -4,8 +4,8 @@ import { Button } from '@mui/joy';
 import gpxParser from 'gpxparser';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { Coordinate, setRoute } from '../../features/route';
-import { useAppDispatch } from '../../hooks';
+import { Coordinate, setRoute } from '~/features/route';
+import { useAppDispatch } from '~/hooks';
 
 export const Dropzone = () => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({});
@@ -21,8 +21,10 @@ export const Dropzone = () => {
         gpx.parse(text);
         if (gpx.tracks[0]) {
           const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
+            elevation: point.ele,
             latitude: point.lat,
             longitude: point.lon,
+            timestamp: point.time.toISOString(),
           }));
           dispatch(setRoute(coordinates));
         }

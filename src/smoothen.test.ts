@@ -1,39 +1,9 @@
 import { describe, it } from 'vitest';
+import { testRoute } from './components/AddTestRoute';
 import { smoothen } from './smoothen';
 
 describe('smoothen', () => {
   it('it picks out all points if treshold small enough', () => {
-    const testRoute = [
-      {
-        latitude: 63.106377,
-        longitude: 21.59627,
-      },
-      {
-        latitude: 63.106379,
-        longitude: 21.596372,
-      },
-      {
-        latitude: 63.10638,
-        longitude: 21.596475,
-      },
-      {
-        latitude: 63.106415,
-        longitude: 21.596235,
-      },
-      {
-        latitude: 63.106485,
-        longitude: 21.5961,
-      },
-      {
-        latitude: 63.106145,
-        longitude: 21.59675,
-      },
-      {
-        latitude: 63.106385,
-        longitude: 21.59648,
-      },
-    ];
-
     const result = smoothen(testRoute, 1);
 
     expect(result).toEqual(testRoute);
@@ -46,10 +16,14 @@ describe('smoothen', () => {
           {
             latitude: 63.106377,
             longitude: 21.59627,
+            elevation: 27.2,
+            timestamp: '2016-11-17T16:37:35Z',
           },
           {
             latitude: 63.106379,
             longitude: 21.596372,
+            elevation: 27,
+            timestamp: '2016-11-17T16:37:48Z',
           },
         ],
         5000
@@ -58,29 +32,39 @@ describe('smoothen', () => {
       {
         latitude: 63.106377,
         longitude: 21.59627,
+        elevation: 27.2,
+        timestamp: '2016-11-17T16:37:35Z',
       },
       {
         latitude: 63.106379,
         longitude: 21.596372,
+        elevation: 27,
+        timestamp: '2016-11-17T16:37:48Z',
       },
     ]);
   });
 
-  it('works skips route point if treshold is big', () => {
+  it('skips route point if treshold is big', () => {
     expect(
       smoothen(
         [
           {
             latitude: 63.10852,
             longitude: 21.60761,
+            elevation: 27.2,
+            timestamp: '2016-11-17T16:37:35Z',
           },
           {
             latitude: 63.108567,
             longitude: 21.60749,
+            elevation: 27.0,
+            timestamp: '2016-11-17T16:37:48Z',
           },
           {
             latitude: 63.10861,
             longitude: 21.607355,
+            elevation: 26.8,
+            timestamp: '2016-11-17T16:37:49Z',
           },
         ],
         5000
@@ -89,10 +73,14 @@ describe('smoothen', () => {
       {
         latitude: 63.10852,
         longitude: 21.60761,
+        elevation: 27.2,
+        timestamp: '2016-11-17T16:37:35Z',
       },
       {
         latitude: 63.10861,
         longitude: 21.607355,
+        elevation: 26.8,
+        timestamp: '2016-11-17T16:37:49Z',
       },
     ]);
   });
