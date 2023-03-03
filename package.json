@@ -21,6 +21,7 @@
     "@mui/joy": "5.0.0-alpha.69",
     "@mui/material": "^5.11.9",
     "@reduxjs/toolkit": "^1.9.2",
+    "gpx-builder": "^5.2.0",
     "gpxparser": "^3.0.8",
     "immer": "^9.0.19",
     "leaflet": "^1.9.3",
