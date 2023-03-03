@@ -11,7 +11,7 @@ import { RangeSlider } from './RangeSlider';
 describe('<RangeSlider />', () => {
   it('dispatches correct action when changing range', async () => {
     const store = createStore();
-    store.dispatch(setTreshold(50));
+    store.dispatch(setTreshold(200));
     const dispatch = vi.spyOn(store, 'dispatch');
     render(
       <TestProvider store={store}>
@@ -24,7 +24,8 @@ describe('<RangeSlider />', () => {
       fireEvent.change(startPointSlider, { target: { value: '1' } });
     });
     await waitFor(() => {
-      expect(dispatch).toHaveBeenCalledWith(
+      expect(dispatch).toHaveBeenNthCalledWith(
+        1,
         setSelectedRoute(
           produce(testRoute, (draftRoute) => {
             draftRoute.shift();
@@ -33,7 +34,7 @@ describe('<RangeSlider />', () => {
       );
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       const expected = [testRoute[1]!, testRoute[testRoute.length - 1]!];
-      expect(dispatch).toHaveBeenCalledWith(setSmoothenedRoute(expected));
+      expect(dispatch).toHaveBeenNthCalledWith(2, setSmoothenedRoute(expected));
     });
   });
 });
