@@ -18,8 +18,8 @@ describe('<RouteChangeListener />', () => {
     const store = createStore();
     store.dispatch(
       setSelectedRoute([
-        { latitude: 20, longitude: 20 },
-        { latitude: 21, longitude: 21 },
+        { latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' },
+        { latitude: 21, longitude: 21, elevation: 13, timestamp: '2016-11-17T16:37:50Z' },
       ])
     );
 
@@ -49,8 +49,8 @@ describe('<RouteChangeListener />', () => {
     const store = createStore();
     store.dispatch(
       setRoute([
-        { latitude: 20, longitude: 20 },
-        { latitude: 21, longitude: 21 },
+        { latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' },
+        { latitude: 21, longitude: 21, elevation: 13, timestamp: '2016-11-17T16:37:50Z' },
       ])
     );
 

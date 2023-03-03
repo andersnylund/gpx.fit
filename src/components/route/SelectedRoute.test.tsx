@@ -21,8 +21,12 @@ vi.mock('react-leaflet', () => ({
 describe('<SelectedRoute />', () => {
   it('renders', () => {
     const store = createStore();
-    store.dispatch(setSelectedRoute([{ latitude: 20, longitude: 20 }]));
-    store.dispatch(setSmoothenedRoute([{ latitude: 40, longitude: 40 }]));
+    store.dispatch(
+      setSelectedRoute([{ latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }])
+    );
+    store.dispatch(
+      setSmoothenedRoute([{ latitude: 40, longitude: 40, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }])
+    );
 
     render(
       <TestProvider store={store}>

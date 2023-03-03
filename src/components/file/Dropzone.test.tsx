@@ -32,14 +32,20 @@ describe('<Dropzone />', () => {
         {
           latitude: 63.10822,
           longitude: 21.608385,
+          elevation: 17.3,
+          timestamp: '2016-11-17T16:47:51.000Z',
         },
         {
           latitude: 63.10827,
           longitude: 21.608235,
+          elevation: 17.3,
+          timestamp: '2016-11-17T16:47:53.000Z',
         },
         {
           latitude: 63.108333,
           longitude: 21.608047,
+          elevation: 17.3,
+          timestamp: '2016-11-17T16:47:56.000Z',
         },
       ])
     );

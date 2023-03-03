@@ -13,7 +13,7 @@ vi.mock('react-leaflet', () => ({
 describe('<Route />', () => {
   it('renders a polyline', async () => {
     const store = createStore();
-    store.dispatch(setRoute([{ latitude: 20, longitude: 20 }]));
+    store.dispatch(setRoute([{ latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }]));
     render(
       <TestProvider store={store}>
         <Route />

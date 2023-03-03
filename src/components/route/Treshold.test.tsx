@@ -11,7 +11,9 @@ describe('<Treshold />', () => {
   it('render', async () => {
     const store = createStore();
     const dispatch = vi.spyOn(store, 'dispatch');
-    store.dispatch(setSelectedRoute([{ latitude: 20, longitude: 20 }]));
+    store.dispatch(
+      setSelectedRoute([{ latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }])
+    );
     dispatch.mockClear();
 
     render(
@@ -30,7 +32,10 @@ describe('<Treshold />', () => {
 
     await waitFor(() => {
       expect(dispatch).toHaveBeenNthCalledWith(1, setTreshold(12));
-      expect(dispatch).toHaveBeenNthCalledWith(2, setSmoothenedRoute([{ latitude: 20, longitude: 20 }]));
+      expect(dispatch).toHaveBeenNthCalledWith(
+        2,
+        setSmoothenedRoute([{ latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }])
+      );
     });
   });
 });

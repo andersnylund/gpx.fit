@@ -1,26 +1,27 @@
 import matchers from '@testing-library/jest-dom/matchers';
 import { cleanup } from '@testing-library/react';
+import { type Point } from 'gpxparser';
 import { afterEach, expect, vi } from 'vitest';
 
 const mockParse = vi.fn();
-export const mockPoints = [
+const mockPoints: Point[] = [
   {
     lat: 63.10822,
     lon: 21.608385,
     ele: 17.3,
-    time: '2016-11-17T16:47:51.000Z',
+    time: new Date('2016-11-17T16:47:51.000Z'),
   },
   {
     lat: 63.10827,
     lon: 21.608235,
     ele: 17.3,
-    time: '2016-11-17T16:47:53.000Z',
+    time: new Date('2016-11-17T16:47:53.000Z'),
   },
   {
     lat: 63.108333,
     lon: 21.608047,
     ele: 17.3,
-    time: '2016-11-17T16:47:56.000Z',
+    time: new Date('2016-11-17T16:47:56.000Z'),
   },
 ];
 
