@@ -31,10 +31,10 @@ test('adding test route', async ({ page }) => {
   await page.getByRole('slider', { name: 'Track startpoint' }).press('ArrowRight');
   await page.getByRole('slider', { name: 'Track startpoint' }).press('ArrowRight');
   expect(page.getByRole('slider', { name: 'Track startpoint' })).toHaveValue('2');
-  expect(page.getByRole('slider', { name: 'Track endpoint' })).toHaveValue('7');
+  expect(page.getByRole('slider', { name: 'Track endpoint' })).toHaveValue('13');
   await page.getByRole('slider', { name: 'Track endpoint' }).press('ArrowLeft');
   await page.getByRole('slider', { name: 'Track endpoint' }).press('ArrowLeft');
-  expect(page.getByRole('slider', { name: 'Track endpoint' })).toHaveValue('5');
+  expect(page.getByRole('slider', { name: 'Track endpoint' })).toHaveValue('11');
   await page.getByRole('spinbutton').click();
   await page.getByRole('spinbutton').fill('1');
   await page.getByRole('spinbutton').press('Enter');
