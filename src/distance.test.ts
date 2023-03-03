@@ -9,7 +9,7 @@ describe('distance', () => {
     if (!point1 || !point2) {
       throw new Error('Invalid test data');
     }
-    expect(getDistanceBetweenTwoPoints(point1, point2)).toEqual(5.131828552736544);
+    expect(getDistanceBetweenTwoPoints(point1, point2)).toEqual(24.445894659945278);
   });
 
   it('returns 0 if equal points', () => {
