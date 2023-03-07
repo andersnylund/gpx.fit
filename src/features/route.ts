@@ -2,10 +2,10 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface Coordinate {
-  elevation: number;
+  elevation?: number;
   latitude: number;
   longitude: number;
-  timestamp: string;
+  timestamp?: string;
 }
 
 export interface RoutesState {

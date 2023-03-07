@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Add, FileOpen } from '@mui/icons-material';
 import { Button } from '@mui/joy';
-import gpxParser from 'gpxparser';
+import { _experimentalParseGpx } from 'gpx-builder';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Coordinate, setRoute } from '~/features/route';
@@ -17,15 +17,17 @@ export const Dropzone = () => {
       const file = acceptedFiles[0];
       if (file) {
         const text = await file.text();
-        const gpx = new gpxParser();
-        gpx.parse(text);
-        if (gpx.tracks[0]) {
-          const coordinates: Coordinate[] = gpx.tracks[0].points.map((point) => ({
-            elevation: point.ele,
-            latitude: point.lat,
-            longitude: point.lon,
-            timestamp: point.time.toISOString(),
+        const gpx = _experimentalParseGpx(text).toObject();
+        const coordinates: Coordinate[] | undefined = gpx.trk
+          ?.at(0)
+          ?.trkseg?.at(0)
+          ?.trkpt?.map((segment) => ({
+            elevation: segment.ele,
+            latitude: parseFloat(segment.attributes.lat as unknown as string),
+            longitude: parseFloat(segment.attributes.lon as unknown as string),
+            timestamp: segment.time?.toISOString(),
           }));
+        if (coordinates) {
           dispatch(setRoute(coordinates));
         }
       }

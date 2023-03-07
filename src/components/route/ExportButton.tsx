@@ -41,7 +41,7 @@ export const ExportButton = () => {
 
       const final = [...startPart, ...smoothenedRoute, ...endPart].map(
         ({ elevation, latitude, longitude, timestamp }) =>
-          new Point(latitude, longitude, { ele: elevation, time: new Date(timestamp) })
+          new Point(latitude, longitude, { ele: elevation, time: timestamp ? new Date(timestamp) : undefined })
       );
 
       const gpxData = new BaseBuilder();
