@@ -30,18 +30,14 @@ const getBounds = (points: Coordinate[]): LatLngBounds => {
 
 export const RouteChangeListener = () => {
   const route = useAppSelector((state) => state.routes.route);
-  const selectedRoute = useAppSelector((state) => state.routes.selectedRoute);
   const map = useMap();
 
   useEffect(() => {
-    if (selectedRoute) {
-      const bounds = getBounds(selectedRoute);
-      map.fitBounds(bounds);
-    } else if (route) {
+    if (route) {
       const bounds = getBounds(route);
       map.fitBounds(bounds);
     }
-  }, [route, selectedRoute, map]);
+  }, [route, map]);
 
   return null;
 };
