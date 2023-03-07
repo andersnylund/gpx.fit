@@ -1,12 +1,15 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
+import { z } from 'zod';
 
-export interface Coordinate {
-  elevation: number;
-  latitude: number;
-  longitude: number;
-  timestamp: string;
-}
+export const coordinateSchema = z.object({
+  elevation: z.number().optional(),
+  latitude: z.string().transform((lat) => parseFloat(lat)),
+  longitude: z.string().transform((lat) => parseFloat(lat)),
+  timestamp: z.string().optional(),
+});
+
+export type Coordinate = z.infer<typeof coordinateSchema>;
 
 export interface RoutesState {
   route?: Coordinate[];
