@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { BaseBuilder } from 'gpx-builder';
 import produce from 'immer';
 import { vi } from 'vitest';
 import { setRoute, setSelectedRoute, setSmoothenedRoute } from '~/features/route';
@@ -8,6 +9,33 @@ import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
 import { testRoute } from '../AddTestRoute';
 import { ExportButton } from './ExportButton';
+
+const { Point } = BaseBuilder.MODELS;
+
+const mockSetSegmentPoints = vi.fn();
+
+vi.mock('gpx-builder', async () => ({
+  BaseBuilder: class {
+    public static MODELS = {
+      Point: class {
+        private lat: number;
+        private lon: number;
+        private ele?: number;
+        private time?: Date;
+        public constructor(lat: number, lon: number, { ele, time }: { ele?: number; time?: Date } = {}) {
+          this.lat = lat;
+          this.lon = lon;
+          this.ele = ele;
+          this.time = time;
+        }
+      },
+    };
+
+    setSegmentPoints = mockSetSegmentPoints;
+    toObject = vi.fn();
+  },
+  buildGPX: vi.fn(),
+}));
 
 describe('<ExportButton />', () => {
   beforeAll(() => {
@@ -32,7 +60,11 @@ describe('<ExportButton />', () => {
     });
   });
 
-  it('renders', async () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('create a valid link for downloading the export', async () => {
     const store = createStore();
     store.dispatch(setRoute(testRoute));
     store.dispatch(
@@ -60,5 +92,48 @@ describe('<ExportButton />', () => {
 
     expect(URL.createObjectURL).toHaveBeenCalledWith(new File([], 'smoothened.gpx'));
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('http://localhost:3000/objectURL');
+
+    expect(mockSetSegmentPoints.mock.calls[0]?.[0]?.[0]).toEqual(
+      new Point(60.2146386, 24.9142349, { ele: 29.6, time: new Date('2023-03-03T08:45:20.000Z') })
+    );
+  });
+
+  it('handles an undefined timestamp', async () => {
+    const store = createStore();
+    store.dispatch(
+      setRoute(
+        produce(testRoute, (draft) => {
+          if (draft[0]) {
+            draft[0].timestamp = undefined;
+          }
+        })
+      )
+    );
+    store.dispatch(
+      setSelectedRoute(
+        produce(testRoute, (draftRoute) => {
+          draftRoute.slice(3);
+        })
+      )
+    );
+    store.dispatch(
+      setSmoothenedRoute(
+        produce(testRoute, (draftRoute) => {
+          smoothen(draftRoute.slice(3), 100);
+        })
+      )
+    );
+
+    render(
+      <TestProvider store={store}>
+        <ExportButton />
+      </TestProvider>
+    );
+
+    await userEvent.click(screen.getByText('Export'));
+
+    expect(mockSetSegmentPoints.mock.calls[0]?.[0]?.[0]).toEqual(
+      new Point(60.2146386, 24.9142349, { ele: 29.6, time: undefined })
+    );
   });
 });
