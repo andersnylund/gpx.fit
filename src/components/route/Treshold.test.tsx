@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
-import { setSelectedRoute, setSmoothenedRoute } from '~/features/route';
+import { setSelectedRoute } from '~/features/route';
 import { setTreshold } from '~/features/treshold';
 import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
@@ -32,10 +32,10 @@ describe('<Treshold />', () => {
 
     await waitFor(() => {
       expect(dispatch).toHaveBeenNthCalledWith(1, setTreshold(12));
-      expect(dispatch).toHaveBeenNthCalledWith(
-        2,
-        setSmoothenedRoute([{ latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' }])
-      );
     });
+
+    expect(store.getState().routes.smoothenedRoute).toEqual([
+      { latitude: 20, longitude: 20, elevation: 12, timestamp: '2016-11-17T16:37:49Z' },
+    ]);
   });
 });

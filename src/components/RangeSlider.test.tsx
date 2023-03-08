@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import produce from 'immer';
 import { it, vi } from 'vitest';
-import { setSelectedRoute, setSmoothenedRoute } from '~/features/route';
+import { setSelectedRoute } from '~/features/route';
 import { setTreshold } from '~/features/treshold';
 import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
@@ -32,9 +32,10 @@ describe('<RangeSlider />', () => {
           })
         )
       );
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      const expected = [testRoute[1]!, testRoute[testRoute.length - 1]!];
-      expect(dispatch).toHaveBeenNthCalledWith(2, setSmoothenedRoute(expected));
     });
+
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const expected = [testRoute[1]!, testRoute[testRoute.length - 1]!];
+    expect(store.getState().routes.smoothenedRoute).toEqual(expected);
   });
 });
