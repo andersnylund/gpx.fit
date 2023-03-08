@@ -39,6 +39,8 @@ test('adds test route, smoothens, and exports', async ({ page }) => {
   expect(page.getByRole('slider', { name: 'Track endpoint' })).toHaveValue('11');
   await page.getByRole('spinbutton').click();
   await page.getByRole('spinbutton').fill('1');
+  // wait for the smoothened route to have been changed (300ms timeout on changes)
+  await new Promise((resolve) => setTimeout(resolve, 300));
   await page.getByRole('spinbutton').press('Enter');
   const downloadPromise = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export' }).click();
