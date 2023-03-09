@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import produce from 'immer';
 import { it, vi } from 'vitest';
 import { setSelectedRoute } from '~/features/route';
-import { setTreshold } from '~/features/treshold';
+import { setThreshold } from '~/features/threshold';
 import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
 import { testRoute } from './AddTestRoute';
@@ -11,7 +11,7 @@ import { RangeSlider } from './RangeSlider';
 describe('<RangeSlider />', () => {
   it('dispatches correct action when changing range', async () => {
     const store = createStore();
-    store.dispatch(setTreshold(200));
+    store.dispatch(setThreshold(200));
     const dispatch = vi.spyOn(store, 'dispatch');
     render(
       <TestProvider store={store}>
