@@ -3,7 +3,7 @@ import { testRoute } from './components/AddTestRoute';
 import { smoothen } from './smoothen';
 
 describe('smoothen', () => {
-  it('it picks out all points if treshold small enough', () => {
+  it('it picks out all points if threshold small enough', () => {
     const result = smoothen(testRoute, 1);
 
     expect(result).toEqual(testRoute);
@@ -44,7 +44,7 @@ describe('smoothen', () => {
     ]);
   });
 
-  it('skips route point if treshold is big', () => {
+  it('skips route point if threshold is big', () => {
     expect(
       smoothen(
         [

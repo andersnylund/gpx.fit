@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { useAppSelector } from '~/hooks';
 import { RangeSlider } from '../RangeSlider';
 import { ExportButton } from './ExportButton';
-import { Treshold } from './Treshold';
+import { Threshold } from './Threshold';
 
 export const TrackControls = () => {
   const route = useAppSelector((state) => state.routes.route);
@@ -14,7 +14,7 @@ export const TrackControls = () => {
   return (
     <Container>
       <ExportButton />
-      <Treshold />
+      <Threshold />
       <RangeSlider route={route} />
     </Container>
   );

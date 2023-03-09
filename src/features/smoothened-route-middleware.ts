@@ -2,19 +2,19 @@ import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit';
 import { smoothen } from '~/smoothen';
 import { RootState } from '~/store';
 import { setSelectedRoute, setSmoothenedRoute } from './route';
-import { setTreshold } from './treshold';
+import { setThreshold } from './threshold';
 
 export const smoothenedRouteMiddleware = createListenerMiddleware<RootState>();
 
 smoothenedRouteMiddleware.startListening({
-  matcher: isAnyOf(setTreshold, setSelectedRoute),
+  matcher: isAnyOf(setThreshold, setSelectedRoute),
   effect: (_, { dispatch, getState }) => {
     const {
       routes: { selectedRoute },
-      treshold: { treshold },
+      threshold: { threshold },
     } = getState();
-    if (selectedRoute && treshold) {
-      const smoothenedRoute = smoothen(selectedRoute, treshold);
+    if (selectedRoute && threshold) {
+      const smoothenedRoute = smoothen(selectedRoute, threshold);
       dispatch(setSmoothenedRoute(smoothenedRoute));
     }
   },

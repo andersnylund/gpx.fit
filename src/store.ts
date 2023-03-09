@@ -1,18 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { routesReducer, RoutesState } from './features/route';
 import { smoothenedRouteMiddleware } from './features/smoothened-route-middleware';
-import { tresholdReducer, TresholdState } from './features/treshold';
+import { thresholdReducer, ThresholdState } from './features/threshold';
 
 export type RootState = {
   routes: RoutesState;
-  treshold: TresholdState;
+  threshold: ThresholdState;
 };
 
 export const createStore = () =>
   configureStore({
     reducer: {
       routes: routesReducer,
-      treshold: tresholdReducer,
+      threshold: thresholdReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().prepend(smoothenedRouteMiddleware.middleware),
   });

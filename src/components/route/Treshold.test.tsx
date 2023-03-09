@@ -2,12 +2,12 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi } from 'vitest';
 import { setSelectedRoute } from '~/features/route';
-import { setTreshold } from '~/features/treshold';
+import { setThreshold } from '~/features/threshold';
 import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
-import { Treshold } from './Treshold';
+import { Threshold } from './Threshold';
 
-describe('<Treshold />', () => {
+describe('<Threshold />', () => {
   it('render', async () => {
     const store = createStore();
     const dispatch = vi.spyOn(store, 'dispatch');
@@ -18,7 +18,7 @@ describe('<Treshold />', () => {
 
     render(
       <TestProvider store={store}>
-        <Treshold />
+        <Threshold />
       </TestProvider>
     );
 
@@ -31,7 +31,7 @@ describe('<Treshold />', () => {
     expect(spinbutton).toHaveValue(12);
 
     await waitFor(() => {
-      expect(dispatch).toHaveBeenNthCalledWith(1, setTreshold(12));
+      expect(dispatch).toHaveBeenNthCalledWith(1, setThreshold(12));
     });
 
     expect(store.getState().routes.smoothenedRoute).toEqual([

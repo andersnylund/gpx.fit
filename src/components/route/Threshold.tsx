@@ -3,16 +3,16 @@ import { Input } from '@mui/joy';
 import debounce from 'lodash.debounce';
 import { useEffect, useState } from 'react';
 import { z } from 'zod';
-import { setTreshold } from '~/features/treshold';
+import { setThreshold } from '~/features/threshold';
 import { useAppDispatch, useAppSelector } from '~/hooks';
 import { AppDispatch } from '~/store';
 
 const debouncedOnChange = debounce((value: number, dispatch: AppDispatch) => {
-  dispatch(setTreshold(value));
+  dispatch(setThreshold(value));
 }, 300);
 
-export const Treshold = () => {
-  const storeTresholdValue = useAppSelector((state) => state.treshold.treshold);
+export const Threshold = () => {
+  const storeTresholdValue = useAppSelector((state) => state.threshold.threshold);
   const dispatch = useAppDispatch();
 
   const [value, setValue] = useState(storeTresholdValue);

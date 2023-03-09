@@ -1,13 +1,13 @@
 import { testRoute } from '~/components/AddTestRoute';
 import { createStore } from '~/store';
 import { setSelectedRoute } from './route';
-import { setTreshold } from './treshold';
+import { setThreshold } from './threshold';
 
 describe('smoothened route middleware', () => {
   it('works', () => {
     const store = createStore();
     store.dispatch(setSelectedRoute(testRoute));
-    store.dispatch(setTreshold(10000));
+    store.dispatch(setThreshold(10000));
     expect(store.getState().routes.smoothenedRoute).toEqual([
       {
         elevation: 29.6,
