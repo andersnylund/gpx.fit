@@ -1,14 +1,18 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { readFile } from 'fs/promises';
+import { vi } from 'vitest';
+import { setRoute } from '~/features/route';
+import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
 import { Dropzone } from './Dropzone';
-import userEvent from '@testing-library/user-event';
-import { createStore } from '~/store';
-import { vi } from 'vitest';
-import { testXmlString } from '~/test/test-strings';
-import { setRoute } from '~/features/route';
+
+let testXmlString = '';
 
 describe('<Dropzone />', () => {
-  beforeAll(() => {
+  beforeAll(async () => {
+    const xmlFile = await readFile('./src/test/test.xml', 'utf-8');
+    testXmlString = xmlFile.toString();
     File.prototype.text = vi.fn(() => new Promise((resolve) => resolve(testXmlString)));
   });
 
@@ -70,6 +74,18 @@ describe('<Dropzone />', () => {
           latitude: 63.114771,
           longitude: 18.388006,
           timestamp: '2023-03-01T19:33:28.789Z',
+        },
+        {
+          elevation: 201.004253,
+          latitude: 63.11372,
+          longitude: 18.38393,
+          timestamp: '2023-03-01T19:34:38.857Z',
+        },
+        {
+          elevation: 201.004253,
+          latitude: 63.11372,
+          longitude: 18.38393,
+          timestamp: '2023-03-01T19:34:38.857Z',
         },
       ])
     );
