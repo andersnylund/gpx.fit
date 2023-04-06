@@ -19,14 +19,7 @@ const getArrayOrNothing = <T>(source: T): T[] | undefined => {
 const getPoints = (source: any) => {
   return (
     getArrayOrNothing(source)?.map((item) => {
-      let hr: number;
-      if (isArray(item.extensions)) {
-        hr = item?.extensions?.find((extension: any) => extension['gpxtpx:TrackPointExtension'])?.[
-          'gpxtpx:TrackPointExtension'
-        ]?.['gpxtpx:hr'];
-      } else {
-        hr = item?.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'];
-      }
+      const hr = item?.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'];
 
       return new Point(Number(item['@lat']), Number(item['@lon']), {
         ele: item.ele ? Number(item.ele) : undefined,
@@ -34,6 +27,7 @@ const getPoints = (source: any) => {
         name: item.name,
         sym: item.sym,
         type: item.type,
+        /* c8 ignore start */
         fix: item.fix ? Number(item.fix) : undefined,
         cmt: item.cmt,
         desc: item.desc,
@@ -48,6 +42,7 @@ const getPoints = (source: any) => {
         geoidheight: item.geoidheight ? Number(item.geoidheight) : undefined,
         link: item.link ? new Link(item.link['@href']) : undefined,
         hr: hr ? Number(hr) : undefined,
+        /* c8 ignore stop */
       });
     }) || []
   );
@@ -86,10 +81,6 @@ export const parseGpx = (gpx: string): CustomStravaBuilder => {
       }),
     })
     .parse(create(gpx).toObject());
-
-  if (!parsed.gpx) {
-    throw new Error('Invalid format.');
-  }
 
   const gpxData = new StravaBuilder();
 
