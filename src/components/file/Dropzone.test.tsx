@@ -1,19 +1,26 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { readFile } from 'fs/promises';
+import { vi } from 'vitest';
+import { setRoute } from '~/features/route';
+import { createStore } from '~/store';
 import { TestProvider } from '~/test/utils';
 import { Dropzone } from './Dropzone';
-import userEvent from '@testing-library/user-event';
-import { createStore } from '~/store';
-import { vi } from 'vitest';
-import { testXmlString } from '~/test/test-strings';
-import { setRoute } from '~/features/route';
+import { setThreshold } from '~/features/threshold';
+
+let testXmlString = '';
 
 describe('<Dropzone />', () => {
-  beforeAll(() => {
+  beforeAll(async () => {
+    const xmlFile = await readFile('./src/test/test.xml', 'utf-8');
+    testXmlString = xmlFile.toString();
     File.prototype.text = vi.fn(() => new Promise((resolve) => resolve(testXmlString)));
   });
 
   it('allows to upload a file', async () => {
     const store = createStore();
+    store.dispatch(setThreshold(1));
+
     const dispatch = vi.spyOn(store, 'dispatch');
 
     render(
@@ -30,46 +37,82 @@ describe('<Dropzone />', () => {
     expect(dispatch).toHaveBeenCalledWith(
       setRoute([
         {
-          elevation: 201.004253,
-          latitude: 63.11371,
-          longitude: 18.38392,
-          timestamp: '2023-03-01T19:31:38.857Z',
+          latitude: 60.2146386,
+          longitude: 24.9142349,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:20.000Z',
         },
         {
-          elevation: 201.004253,
-          latitude: 63.113746,
-          longitude: 18.384052,
-          timestamp: '2023-03-01T19:31:42.304Z',
+          latitude: 60.2148491,
+          longitude: 24.9143636,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:22.000Z',
         },
         {
-          elevation: 201.758825,
-          latitude: 63.1145,
-          longitude: 18.386311,
-          timestamp: '2023-03-01T19:32:46.508Z',
+          latitude: 60.2150543,
+          longitude: 24.9144441,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:24.000Z',
         },
         {
-          elevation: 201.941812,
-          latitude: 63.114544,
-          longitude: 18.386526,
-          timestamp: '2023-03-01T19:32:51.995Z',
+          latitude: 60.2152302,
+          longitude: 24.9145192,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:26.000Z',
         },
         {
-          elevation: 202.22021,
-          latitude: 63.114576,
-          longitude: 18.386878,
-          timestamp: '2023-03-01T19:33:00.255Z',
+          latitude: 60.2154194,
+          longitude: 24.9145943,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:28.000Z',
         },
         {
-          elevation: 202.687228,
-          latitude: 63.114635,
-          longitude: 18.387466,
-          timestamp: '2023-03-01T19:33:14.390Z',
+          latitude: 60.2154354,
+          longitude: 24.9144763,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:30.000Z',
         },
         {
-          elevation: 203.166495,
-          latitude: 63.114771,
-          longitude: 18.388006,
-          timestamp: '2023-03-01T19:33:28.789Z',
+          latitude: 60.2153901,
+          longitude: 24.9145031,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:32.000Z',
+        },
+        {
+          latitude: 60.2153687,
+          longitude: 24.9146694,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:34.000Z',
+        },
+        {
+          latitude: 60.21547,
+          longitude: 24.9145353,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:36.000Z',
+        },
+        {
+          latitude: 60.215454,
+          longitude: 24.9146158,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:38.000Z',
+        },
+        {
+          latitude: 60.2155979,
+          longitude: 24.9146748,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:40.000Z',
+        },
+        {
+          latitude: 60.2157871,
+          longitude: 24.9147606,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:42.000Z',
+        },
+        {
+          latitude: 60.2159603,
+          longitude: 24.9148571,
+          elevation: 29.6,
+          timestamp: '2023-03-03T08:45:44.000Z',
         },
       ])
     );

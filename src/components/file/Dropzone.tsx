@@ -18,17 +18,22 @@ export const Dropzone = () => {
       if (file) {
         const text = await file.text();
         const gpx = _experimentalParseGpx(text).toObject();
-        const coordinates: Coordinate[] | undefined = gpx.trk
-          ?.at(0)
-          ?.trkseg?.at(0)
-          ?.trkpt?.map((segment) =>
-            coordinateSchema.parse({
-              elevation: segment.ele,
-              latitude: segment.attributes.lat,
-              longitude: segment.attributes.lon,
-              timestamp: segment.time?.toISOString(),
-            })
-          );
+        const coordinates = gpx.trk
+          ?.flatMap((track) =>
+            track.trkseg
+              ?.flatMap((segment) =>
+                segment.trkpt?.map((point) =>
+                  coordinateSchema.parse({
+                    elevation: point.ele,
+                    latitude: point.attributes.lat,
+                    longitude: point.attributes.lon,
+                    timestamp: point.time?.toISOString(),
+                  })
+                )
+              )
+              .filter((coordinate): coordinate is Coordinate => !!coordinate)
+          )
+          .filter((coordinate): coordinate is Coordinate => !!coordinate);
         if (coordinates) {
           dispatch(setRoute(coordinates));
         }
