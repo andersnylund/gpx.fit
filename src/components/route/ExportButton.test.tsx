@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { BaseBuilder } from 'gpx-builder';
+import { StravaBuilder } from 'gpx-builder';
 import produce from 'immer';
 import { vi } from 'vitest';
 import { setRoute, setSelectedRoute, setSmoothenedRoute } from '~/features/route';
@@ -10,12 +10,12 @@ import { TestProvider } from '~/test/utils';
 import { testRoute } from '../AddTestRoute';
 import { ExportButton } from './ExportButton';
 
-const { Point } = BaseBuilder.MODELS;
+const { Point } = StravaBuilder.MODELS;
 
 const mockSetSegmentPoints = vi.fn();
 
 vi.mock('gpx-builder', async () => ({
-  BaseBuilder: class {
+  StravaBuilder: class {
     public static MODELS = {
       Point: class {
         private lat: number;

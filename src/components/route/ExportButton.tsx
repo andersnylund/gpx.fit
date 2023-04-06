@@ -1,5 +1,5 @@
 import { Button } from '@mui/joy';
-import { BaseBuilder, buildGPX, StravaBuilder } from 'gpx-builder';
+import { buildGPX, StravaBuilder } from 'gpx-builder';
 import produce from 'immer';
 import { equals } from 'remeda';
 import { useAppSelector } from '~/hooks';

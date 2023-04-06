@@ -28,7 +28,7 @@ export const Dropzone = () => {
                     latitude: point.attributes.lat,
                     longitude: point.attributes.lon,
                     timestamp: point.time?.toISOString(),
-                    hr: point.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'],
+                    heartRate: point.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'],
                   })
                 )
               )
