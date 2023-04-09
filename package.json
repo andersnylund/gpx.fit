@@ -52,7 +52,7 @@
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
     "@vitejs/plugin-react": "^3.1.0",
-    "@vitest/coverage-c8": "^0.29.1",
+    "@vitest/coverage-c8": "^0.30.0",
     "eslint": "8.38.0",
     "eslint-config-next": "^13.0.4",
     "eslint-config-prettier": "^8.6.0",
@@ -66,6 +66,6 @@
     "start-server-and-test": "^2.0.0",
     "typescript": "5.0.3",
     "vite": "^4.1.1",
-    "vitest": "^0.29.1"
+    "vitest": "^0.30.0"
   }
 }
