@@ -4,9 +4,10 @@ import { z } from 'zod';
 
 export const coordinateSchema = z.object({
   elevation: z.number().optional(),
-  latitude: z.string().transform((lat) => parseFloat(lat)),
-  longitude: z.string().transform((lat) => parseFloat(lat)),
+  latitude: z.number(),
+  longitude: z.number(),
   timestamp: z.string().optional(),
+  heartRate: z.number().optional(),
 });
 
 export type Coordinate = z.infer<typeof coordinateSchema>;

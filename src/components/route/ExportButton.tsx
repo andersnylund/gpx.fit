@@ -1,10 +1,10 @@
 import { Button } from '@mui/joy';
-import { BaseBuilder, buildGPX } from 'gpx-builder';
+import { buildGPX, StravaBuilder } from 'gpx-builder';
 import produce from 'immer';
 import { equals } from 'remeda';
 import { useAppSelector } from '~/hooks';
 
-const { Point } = BaseBuilder.MODELS;
+const { Point } = StravaBuilder.MODELS;
 
 const downloadFile = (file: File) => {
   // Create a link and set the URL using `createObjectURL`
@@ -40,11 +40,15 @@ export const ExportButton = () => {
       const endPart = produce(route, (draft) => draft.slice(endIndex, route.length - 1));
 
       const final = [...startPart, ...smoothenedRoute, ...endPart].map(
-        ({ elevation, latitude, longitude, timestamp }) =>
-          new Point(latitude, longitude, { ele: elevation, time: timestamp ? new Date(timestamp) : undefined })
+        ({ elevation, latitude, longitude, timestamp, heartRate }) =>
+          new Point(latitude, longitude, {
+            ele: elevation,
+            time: timestamp ? new Date(timestamp) : undefined,
+            hr: heartRate,
+          })
       );
 
-      const gpxData = new BaseBuilder();
+      const gpxData = new StravaBuilder();
       gpxData.setSegmentPoints(final);
 
       const file = new File([buildGPX(gpxData.toObject())], 'smoothened.gpx');

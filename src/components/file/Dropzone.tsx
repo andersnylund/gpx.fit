@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { Add, FileOpen } from '@mui/icons-material';
 import { Button } from '@mui/joy';
-import { _experimentalParseGpx } from 'gpx-builder';
 import { useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Coordinate, coordinateSchema, setRoute } from '~/features/route';
 import { useAppDispatch } from '~/hooks';
+import { parseGpx } from '~/parser/strava-parser';
 
 export const Dropzone = () => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({});
@@ -17,7 +17,7 @@ export const Dropzone = () => {
       const file = acceptedFiles[0];
       if (file) {
         const text = await file.text();
-        const gpx = _experimentalParseGpx(text).toObject();
+        const gpx = parseGpx(text).toObject();
         const coordinates = gpx.trk
           ?.flatMap((track) =>
             track.trkseg
@@ -28,6 +28,7 @@ export const Dropzone = () => {
                     latitude: point.attributes.lat,
                     longitude: point.attributes.lon,
                     timestamp: point.time?.toISOString(),
+                    heartRate: point.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'],
                   })
                 )
               )
