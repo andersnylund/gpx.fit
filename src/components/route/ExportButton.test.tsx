@@ -22,11 +22,17 @@ vi.mock('gpx-builder', async () => ({
         private lon: number;
         private ele?: number;
         private time?: Date;
-        public constructor(lat: number, lon: number, { ele, time }: { ele?: number; time?: Date } = {}) {
+        private heartRate?: number;
+        public constructor(
+          lat: number,
+          lon: number,
+          { ele, time, hr }: { ele?: number; time?: Date; hr?: number } = {}
+        ) {
           this.lat = lat;
           this.lon = lon;
           this.ele = ele;
           this.time = time;
+          this.heartRate = hr;
         }
       },
     };
@@ -94,7 +100,7 @@ describe('<ExportButton />', () => {
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('http://localhost:3000/objectURL');
 
     expect(mockSetSegmentPoints.mock.calls[0]?.[0]?.[0]).toEqual(
-      new Point(60.2146386, 24.9142349, { ele: 29.6, time: new Date('2023-03-03T08:45:20.000Z') })
+      new Point(60.2146386, 24.9142349, { ele: 29.6, time: new Date('2023-03-03T08:45:20.000Z'), hr: 111 })
     );
   });
 
@@ -133,7 +139,7 @@ describe('<ExportButton />', () => {
     await userEvent.click(screen.getByText('Export'));
 
     expect(mockSetSegmentPoints.mock.calls[0]?.[0]?.[0]).toEqual(
-      new Point(60.2146386, 24.9142349, { ele: 29.6, time: undefined })
+      new Point(60.2146386, 24.9142349, { ele: 29.6, time: undefined, hr: 111 })
     );
   });
 });

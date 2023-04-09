@@ -40,8 +40,12 @@ export const ExportButton = () => {
       const endPart = produce(route, (draft) => draft.slice(endIndex, route.length - 1));
 
       const final = [...startPart, ...smoothenedRoute, ...endPart].map(
-        ({ elevation, latitude, longitude, timestamp, heartRate: hr }) =>
-          new Point(latitude, longitude, { ele: elevation, time: timestamp ? new Date(timestamp) : undefined, hr })
+        ({ elevation, latitude, longitude, timestamp, heartRate }) =>
+          new Point(latitude, longitude, {
+            ele: elevation,
+            time: timestamp ? new Date(timestamp) : undefined,
+            hr: heartRate,
+          })
       );
 
       const gpxData = new StravaBuilder();
