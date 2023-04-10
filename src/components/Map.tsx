@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import { Route } from './Route';
 import { RouteChangeListener } from './RouteChangeListener';
+import { UserLocation } from './UserLocation';
 import { SelectedRoute } from './route/SelectedRoute';
 
 export const Map = (): ReactElement => {
@@ -14,6 +15,7 @@ export const Map = (): ReactElement => {
       <Route />
       <SelectedRoute />
       <RouteChangeListener />
+      <UserLocation />
     </MapContainer>
   );
 };
