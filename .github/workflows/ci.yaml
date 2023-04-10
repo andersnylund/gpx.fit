@@ -2,6 +2,9 @@ name: E2E-testing
 
 on:
   pull_request:
+  push:
+    branches:
+      - 'renovate/**'
 
 jobs:
   e2e:
