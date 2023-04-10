@@ -3,7 +3,7 @@ import { equals, uniqWith } from 'remeda';
 import { getDistanceBetweenTwoPoints } from './distance';
 import { Coordinate } from './features/route';
 
-export const smoothen = (route: Coordinate[], threshold: number) => {
+export const smoothen = (route: Coordinate[], threshold: number): Coordinate[] => {
   const result = recursively([], route, threshold);
   const lastPoint = route[route.length - 1];
   return uniqWith([...result, ...(lastPoint ? [lastPoint] : [])], equals);

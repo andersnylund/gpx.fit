@@ -14,6 +14,7 @@ smoothenedRouteMiddleware.startListening({
       threshold: { threshold },
     } = getState();
     if (selectedRoute && threshold) {
+      // use web worker here
       const smoothenedRoute = smoothen(selectedRoute, threshold);
       dispatch(setSmoothenedRoute(smoothenedRoute));
     }
