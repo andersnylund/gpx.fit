@@ -1,4 +1,3 @@
-import { CssVarsProvider } from '@mui/joy';
 import { Store } from '@reduxjs/toolkit';
 import { FC, PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
@@ -10,9 +9,5 @@ interface TestProviderProps {
 
 export const TestProvider: FC<PropsWithChildren<TestProviderProps>> = ({ children, store }) => {
   const testStore = store ?? createStore();
-  return (
-    <CssVarsProvider>
-      <Provider store={testStore}>{children}</Provider>
-    </CssVarsProvider>
-  );
+  return <Provider store={testStore}>{children}</Provider>;
 };
