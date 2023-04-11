@@ -1,6 +1,9 @@
 import { render } from '@testing-library/react';
 import { MapContainer } from 'react-leaflet';
 import { vi } from 'vitest';
+import { setRoute } from '~/features/route';
+import { createStore } from '~/store';
+import { TestProvider } from '~/test/utils';
 import { UserLocation } from './UserLocation';
 
 const mockedFlyTo = vi.fn();
@@ -39,11 +42,36 @@ describe('UserLocation', () => {
 
   it('calls flyTo with right parameters', () => {
     render(
-      <MapContainer center={[64, 21]} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
-        <UserLocation />
-      </MapContainer>
+      <TestProvider>
+        <MapContainer center={[64, 21]} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
+          <UserLocation />
+        </MapContainer>
+      </TestProvider>
     );
     expect(mockedFlyTo).toHaveBeenCalledWith([12, 11], 13);
+  });
+
+  it('does not call flyTo if route is selected', () => {
+    const store = createStore();
+    store.dispatch(
+      setRoute([
+        {
+          latitude: 12,
+          longitude: 11,
+          timestamp: '2021-01-01T00:00:00.000Z',
+          elevation: 0,
+          heartRate: 0,
+        },
+      ])
+    );
+    render(
+      <TestProvider store={store}>
+        <MapContainer center={[64, 21]} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
+          <UserLocation />
+        </MapContainer>
+      </TestProvider>
+    );
+    expect(mockedFlyTo).not.toHaveBeenCalled();
   });
 
   it('does not call flyTo if navigator not found', () => {
@@ -52,9 +80,11 @@ describe('UserLocation', () => {
       writable: true,
     });
     render(
-      <MapContainer center={[64, 21]} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
-        <UserLocation />
-      </MapContainer>
+      <TestProvider>
+        <MapContainer center={[64, 21]} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
+          <UserLocation />
+        </MapContainer>
+      </TestProvider>
     );
     expect(mockedFlyTo).not.toHaveBeenCalled();
   });
