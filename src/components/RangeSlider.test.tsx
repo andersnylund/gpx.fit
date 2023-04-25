@@ -1,5 +1,5 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import produce from 'immer';
+import { produce } from 'immer';
 import { it, vi } from 'vitest';
 import { setSelectedRoute } from '~/features/route';
 import { setThreshold } from '~/features/threshold';
