@@ -1,4 +1,3 @@
-import { isArray } from 'remeda';
 import { StravaBuilder } from 'gpx-builder';
 import { create } from 'xmlbuilder2';
 import { z } from 'zod';
@@ -48,13 +47,34 @@ const getPoints = (source: any) => {
   );
 };
 
-const getRoutes = (source: any) => {
-  return getArrayOrNothing(source)?.map((item) => {
-    return new Route({
-      name: item.name,
-      rtept: getPoints(item.rtept),
-    });
+const getRoutes = (source: unknown) => {
+  const routeSchema = z.object({
+    name: z.string(),
+    rtept: z.array(
+      z.object({
+        '@lat': z.string(),
+        '@lon': z.string(),
+        desc: z.string().optional(),
+        name: z.string().optional(),
+        sym: z.string().optional(),
+      })
+    ),
   });
+  type Route = z.infer<typeof routeSchema>;
+  const routeArraySchema = routeSchema.or(z.array(routeSchema).optional());
+  const routes = routeArraySchema.parse(source);
+
+  const result = getArrayOrNothing(routes);
+  if (result) {
+    return result
+      ?.filter((item): item is Route => item !== undefined)
+      .map((item) => {
+        return new Route({
+          name: item.name,
+          rtept: getPoints(item.rtept),
+        });
+      });
+  }
 };
 
 const getSegments = (source: any) => {
