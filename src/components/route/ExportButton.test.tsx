@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { StravaBuilder } from 'gpx-builder';
-import produce from 'immer';
+import { produce } from 'immer';
 import { vi } from 'vitest';
 import { setRoute, setSelectedRoute, setSmoothenedRoute } from '~/features/route';
 import { smoothen } from '~/smoothen';
