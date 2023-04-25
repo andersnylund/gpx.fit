@@ -1,35 +1,27 @@
-import { produce } from 'immer';
-import { equals, uniqWith } from 'remeda';
+import { equals } from 'remeda';
 import { getDistanceBetweenTwoPoints } from './distance';
 import { Coordinate } from './features/route';
 
 export const smoothen = (route: Coordinate[], threshold: number) => {
-  const result = recursively([], route, threshold);
-  const lastPoint = route[route.length - 1];
-  return uniqWith([...result, ...(lastPoint ? [lastPoint] : [])], equals);
-};
+  const stack: Coordinate[] = [];
+  const firstPoint = route[0];
+  if (firstPoint) {
+    stack.push(firstPoint);
+  }
 
-function toEntries<T>(a: T[]) {
-  return a.map((value, index) => [value, index] as const);
-}
-
-const recursively = (previouslySmoothened: Coordinate[], remainder: Coordinate[], threshold: number): Coordinate[] => {
-  const firstPoint = remainder[0];
-  if (!firstPoint) return previouslySmoothened;
-
-  const arrayToCheck = produce(remainder, (draftRoute) => {
-    draftRoute.splice(0, 1);
-  });
-
-  let newSmoothened: Coordinate[] = [];
-
-  for (const [point, index] of toEntries(arrayToCheck)) {
-    if (getDistanceBetweenTwoPoints(firstPoint, point) > threshold) {
-      const toContinueFrom = arrayToCheck.slice(index);
-      newSmoothened = recursively(previouslySmoothened, toContinueFrom, threshold);
-      break;
+  for (let i = 1; i < route.length; i++) {
+    const point = route[i];
+    const lastPoint = stack[stack.length - 1];
+    if (point && lastPoint && getDistanceBetweenTwoPoints(lastPoint, point) > threshold) {
+      stack.push(point);
     }
   }
 
-  return [...previouslySmoothened, firstPoint, ...newSmoothened];
+  // Add the last coordinate if it's not already in the stack
+  const lastPoint = route[route.length - 1];
+  if (lastPoint && !equals(lastPoint, stack[stack.length - 1])) {
+    stack.push(lastPoint);
+  }
+
+  return stack;
 };
