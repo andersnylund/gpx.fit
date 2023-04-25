@@ -77,10 +77,33 @@ const getRoutes = (source: unknown) => {
   }
 };
 
-const getSegments = (source: any) => {
-  return getArrayOrNothing(source)?.map((item) => {
-    return new Segment(getPoints(item.trkpt));
+const getSegments = (source: unknown) => {
+  const segmentSchema = z.object({
+    trkpt: z.array(
+      z.object({
+        '@lat': z.string(),
+        '@lon': z.string(),
+        ele: z.string().optional(),
+        time: z.string().optional(),
+        extensions: z.object({
+          'gpxtpx:TrackPointExtension': z.object({
+            'gpxtpx:hr': z.string().optional(),
+          }),
+        }),
+      })
+    ),
   });
+  const segments = segmentSchema.or(z.array(segmentSchema).optional()).parse(source);
+  type Segment = z.infer<typeof segmentSchema>;
+
+  const result = getArrayOrNothing(segments);
+  if (result) {
+    return result
+      ?.filter((item): item is Segment => item !== undefined)
+      .map((item) => {
+        return new Segment(getPoints(item.trkpt));
+      });
+  }
 };
 
 const getTracks = (source: any) => {
