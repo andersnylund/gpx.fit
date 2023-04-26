@@ -5,7 +5,38 @@ import CustomStravaBuilder from './CustomStravaBuilder';
 
 const { Point, Route, Segment, Track, Link } = StravaBuilder.MODELS;
 
-const getArrayOrNothing = <T>(source: T): T[] | undefined => {
+const trackPoint = z.object({
+  '@lat': z.string(),
+  '@lon': z.string(),
+  ele: z.string().optional(),
+  time: z.string().optional(),
+  extensions: z.object({
+    'gpxtpx:TrackPointExtension': z.object({
+      'gpxtpx:hr': z.string().optional(),
+    }),
+  }),
+});
+
+const segmentSchema = z.object({
+  trkpt: z.array(trackPoint),
+});
+type Segment = z.infer<typeof segmentSchema>;
+
+const routeSchema = z.object({
+  name: z.string(),
+  rtept: z.array(
+    z.object({
+      '@lat': z.string(),
+      '@lon': z.string(),
+      desc: z.string().optional(),
+      name: z.string().optional(),
+      sym: z.string().optional(),
+    })
+  ),
+});
+type Route = z.infer<typeof routeSchema>;
+
+const getArrayOrNothing = <T>(source: T | T[]): T[] | undefined => {
   if (Array.isArray(source)) {
     return source;
   }
@@ -48,21 +79,7 @@ const getPoints = (source: any) => {
 };
 
 const getRoutes = (source: unknown) => {
-  const routeSchema = z.object({
-    name: z.string(),
-    rtept: z.array(
-      z.object({
-        '@lat': z.string(),
-        '@lon': z.string(),
-        desc: z.string().optional(),
-        name: z.string().optional(),
-        sym: z.string().optional(),
-      })
-    ),
-  });
-  type Route = z.infer<typeof routeSchema>;
-  const routeArraySchema = routeSchema.or(z.array(routeSchema).optional());
-  const routes = routeArraySchema.parse(source);
+  const routes = routeSchema.or(z.array(routeSchema).optional()).parse(source);
 
   const result = getArrayOrNothing(routes);
   if (result) {
@@ -78,23 +95,7 @@ const getRoutes = (source: unknown) => {
 };
 
 const getSegments = (source: unknown) => {
-  const segmentSchema = z.object({
-    trkpt: z.array(
-      z.object({
-        '@lat': z.string(),
-        '@lon': z.string(),
-        ele: z.string().optional(),
-        time: z.string().optional(),
-        extensions: z.object({
-          'gpxtpx:TrackPointExtension': z.object({
-            'gpxtpx:hr': z.string().optional(),
-          }),
-        }),
-      })
-    ),
-  });
-  const segments = segmentSchema.or(z.array(segmentSchema).optional()).parse(source);
-  type Segment = z.infer<typeof segmentSchema>;
+  const segments = segmentSchema.or(z.array(segmentSchema)).optional().parse(source);
 
   const result = getArrayOrNothing(segments);
   if (result) {
@@ -106,21 +107,33 @@ const getSegments = (source: unknown) => {
   }
 };
 
-const getTracks = (source: any) => {
-  return getArrayOrNothing(source)?.map((item) => {
-    return new Track(getSegments(item.trkseg), {
-      name: item.name,
+const getTracks = (source: unknown) => {
+  const trackSchema = z
+    .object({
+      name: z.string(),
+      trkseg: segmentSchema.or(z.array(segmentSchema)),
+    })
+    .optional();
+  const tracks = trackSchema.or(z.array(trackSchema)).optional().parse(source);
+
+  const result = getArrayOrNothing(tracks);
+
+  if (result) {
+    return result.map((item) => {
+      return new Track(getSegments(item?.trkseg), {
+        name: item?.name,
+      });
     });
-  });
+  }
 };
 
 export const parseGpx = (gpx: string): CustomStravaBuilder => {
   const parsed = z
     .object({
       gpx: z.object({
-        rte: z.any(),
-        wpt: z.any(),
-        trk: z.any(),
+        rte: z.unknown(),
+        wpt: z.unknown(),
+        trk: z.unknown(),
       }),
     })
     .parse(create(gpx).toObject());
