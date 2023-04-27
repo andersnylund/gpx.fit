@@ -22,7 +22,7 @@
     "@mui/material": "^5.11.9",
     "@reduxjs/toolkit": "^1.9.2",
     "gpx-builder": "^5.2.0",
-    "immer": "^10.0.0",
+    "immer": "^9.0.19",
     "leaflet": "^1.9.3",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
