@@ -24,9 +24,8 @@ describe('Strava parser', () => {
   });
 
   it('should parse empty gpx file', () => {
-    expect(
-      parseGpx(`<?xml version="1.0" encoding="UTF-8" standalone="no"?><gpx></gpx>`).toObject()
-    ).toMatchInlineSnapshot(`
+    expect(parseGpx(`<?xml version="1.0" encoding="UTF-8" standalone="no"?><gpx></gpx>`).toObject())
+      .toMatchInlineSnapshot(`
       {
         "attributes": {
           "creator": "fabulator:gpx-builder",
@@ -64,8 +63,11 @@ describe('Strava parser', () => {
                   "lon": -122.123456,
                 },
                 "desc": "The starting point",
+                "ele": 100,
                 "name": "Start",
                 "sym": "Flag, Red",
+                "time": 2023-04-06T12:34:56.000Z,
+                "type": "Waypoint",
               },
               {
                 "attributes": {
@@ -73,26 +75,11 @@ describe('Strava parser', () => {
                   "lon": -122.123457,
                 },
                 "desc": "A scenic viewpoint",
+                "ele": 110,
                 "name": "Checkpoint 1",
                 "sym": "Waypoint, Green",
-              },
-              {
-                "attributes": {
-                  "lat": 37.123458,
-                  "lon": -122.123458,
-                },
-                "desc": "A rest stop with snacks",
-                "name": "Checkpoint 2",
-                "sym": "Waypoint, Blue",
-              },
-              {
-                "attributes": {
-                  "lat": 37.123459,
-                  "lon": -122.123459,
-                },
-                "desc": "The end of the route",
-                "name": "Finish",
-                "sym": "Flag, Finish",
+                "time": 2023-04-06T12:35:00.000Z,
+                "type": "Waypoint",
               },
             ],
           },

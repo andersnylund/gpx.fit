@@ -5,53 +5,86 @@
     xmlns:strava="http://www.strava.com/gpx-extensions/v3" creator="StravaGPX">
     <metadata>
         <name>My Awesome Ride</name>
+        <desc>A detailed description of my awesome ride</desc>
+        <author>
+            <name>John Doe</name>
+            <email id="john.doe" domain="example.com" />
+            <link href="https://www.example.com">
+                <text>John Doe's Website</text>
+                <type>personal</type>
+            </link>
+        </author>
         <time>2023-04-06T12:34:56Z</time>
+        <keywords>ride, bike, strava, test</keywords>
+        <bounds minlat="37.123456" minlon="-122.123456" maxlat="37.123459" maxlon="-122.123459"/>
+        <link href="https://www.strava.com/activities/123456">
+            <text>View on Strava</text>
+        </link>
     </metadata>
     <rte>
         <name>My Route</name>
+        <desc>Description of my route</desc>
+        <number>1</number>
+        <type>Bike</type>
         <rtept lat="37.123456" lon="-122.123456">
+            <ele>100.0</ele>
+            <time>2023-04-06T12:34:56Z</time>
             <name>Start</name>
             <desc>The starting point</desc>
             <sym>Flag, Red</sym>
+            <type>Waypoint</type>
             <extensions>
                 <strava:segment_id>123456</strava:segment_id>
+                <strava:segment_name>Segment 1</strava:segment_name>
                 <strava:segment_leaderboard_url>https://www.strava.com/segments/123456/leaderboard</strava:segment_leaderboard_url>
                 <strava:segment_leaderboard_entries>1000</strava:segment_leaderboard_entries>
+                <strava:segment_starred>true</strava:segment_starred>
+                <strava:segment_effort_url>https://www.strava.com/segments/123456/efforts</strava:segment_effort_url>
+                <strava:segment_effort_id>111111</strava:segment_effort_id>
+                <strava:segment_effort_start_date>2023-04-06T12:34:56Z</strava:segment_effort_start_date>
+                <strava:segment_effort_elapsed_time>120</strava:segment_effort_elapsed_time>
+                <strava:segment_effort_moving_time>100</strava:segment_effort_moving_time>
+                <strava:segment_effort_distance>1000</strava:segment_effort_distance>
+                <strava:segment_effort_average_cadence>85</strava:segment_effort_average_cadence>
+                <strava:segment_effort_average_cadence>85</strava:segment_effort_average_cadence>
+                <strava:segment_effort_average_watts>250</strava:segment_effort_average_watts>
+                <strava:segment_effort_device_watts>true</strava:segment_effort_device_watts>
+                <strava:segment_effort_average_heartrate>150</strava:segment_effort_average_heartrate>
+                <strava:segment_effort_max_heartrate>170</strava:segment_effort_max_heartrate>
             </extensions>
         </rtept>
         <rtept lat="37.123457" lon="-122.123457">
+            <ele>110.0</ele>
+            <time>2023-04-06T12:35:00Z</time>
             <name>Checkpoint 1</name>
             <desc>A scenic viewpoint</desc>
             <sym>Waypoint, Green</sym>
+            <type>Waypoint</type>
             <extensions>
                 <strava:segment_id>234567</strava:segment_id>
+                <strava:segment_name>Segment 2</strava:segment_name>
                 <strava:segment_leaderboard_url>https://www.strava.com/segments/234567/leaderboard</strava:segment_leaderboard_url>
                 <strava:segment_leaderboard_entries>500</strava:segment_leaderboard_entries>
-            </extensions>
-        </rtept>
-        <rtept lat="37.123458" lon="-122.123458">
-            <name>Checkpoint 2</name>
-            <desc>A rest stop with snacks</desc>
-            <sym>Waypoint, Blue</sym>
-            <extensions>
-                <strava:segment_id>345678</strava:segment_id>
-                <strava:segment_leaderboard_url>https://www.strava.com/segments/345678/leaderboard</strava:segment_leaderboard_url>
-                <strava:segment_leaderboard_entries>250</strava:segment_leaderboard_entries>
-            </extensions>
-        </rtept>
-        <rtept lat="37.123459" lon="-122.123459">
-            <name>Finish</name>
-            <desc>The end of the route</desc>
-            <sym>Flag, Finish</sym>
-            <extensions>
-                <strava:segment_id>456789</strava:segment_id>
-                <strava:segment_leaderboard_url>https://www.strava.com/segments/345678/leaderboard</strava:segment_leaderboard_url>
-                <strava:segment_leaderboard_entries>100</strava:segment_leaderboard_entries>
+                <strava:segment_starred>false</strava:segment_starred>
+                <strava:segment_effort_url>https://www.strava.com/segments/234567/efforts</strava:segment_effort_url>
+                <strava:segment_effort_id>222222</strava:segment_effort_id>
+                <strava:segment_effort_start_date>2023-04-06T12:35:00Z</strava:segment_effort_start_date>
+                <strava:segment_effort_elapsed_time>240</strava:segment_effort_elapsed_time>
+                <strava:segment_effort_moving_time>200</strava:segment_effort_moving_time>
+                <strava:segment_effort_distance>2000</strava:segment_effort_distance>
+                <strava:segment_effort_average_cadence>80</strava:segment_effort_average_cadence>
+                <strava:segment_effort_average_watts>240</strava:segment_effort_average_watts>
+                <strava:segment_effort_device_watts>true</strava:segment_effort_device_watts>
+                <strava:segment_effort_average_heartrate>140</strava:segment_effort_average_heartrate>
+                <strava:segment_effort_max_heartrate>160</strava:segment_effort_max_heartrate>
             </extensions>
         </rtept>
     </rte>
     <trk>
         <name>My Ride</name>
+        <desc>Description of my ride</desc>
+        <number>1</number>
+        <type>Bike</type>
         <trkseg>
             <trkpt lat="37.123456" lon="-122.123456">
                 <ele>100.0</ele>

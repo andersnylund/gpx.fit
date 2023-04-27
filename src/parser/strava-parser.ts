@@ -10,12 +10,39 @@ const trackPoint = z.object({
   '@lon': z.string(),
   ele: z.string().optional(),
   time: z.string().optional(),
-  extensions: z.object({
-    'gpxtpx:TrackPointExtension': z.object({
-      'gpxtpx:hr': z.string().optional(),
-    }),
-  }),
+  desc: z.string().optional(),
+  name: z.string().optional(),
+  sym: z.string().optional(),
+  type: z.string().optional(),
+  fix: z.string().optional(),
+  cmt: z.string().optional(),
+  src: z.string().optional(),
+  dgpsid: z.string().optional(),
+  ageofdgpsdata: z.string().optional(),
+  hdop: z.string().optional(),
+  sat: z.string().optional(),
+  pdop: z.string().optional(),
+  magvar: z.string().optional(),
+  vdop: z.string().optional(),
+  geoidheight: z.string().optional(),
+  link: z
+    .object({
+      '@href': z.string(),
+    })
+    .optional(),
+  extensions: z
+    .object({
+      'gpxtpx:TrackPointExtension': z
+        .object({
+          'gpxtpx:hr': z.string().optional(),
+        })
+        .optional(),
+      'strava:activity_id': z.string().optional(),
+      'strava:activity_type': z.string().optional(),
+    })
+    .optional(),
 });
+type TrackPoint = z.infer<typeof trackPoint>;
 
 const segmentSchema = z.object({
   trkpt: z.array(trackPoint),
@@ -24,15 +51,7 @@ type Segment = z.infer<typeof segmentSchema>;
 
 const routeSchema = z.object({
   name: z.string(),
-  rtept: z.array(
-    z.object({
-      '@lat': z.string(),
-      '@lon': z.string(),
-      desc: z.string().optional(),
-      name: z.string().optional(),
-      sym: z.string().optional(),
-    })
-  ),
+  rtept: z.array(trackPoint),
 });
 type Route = z.infer<typeof routeSchema>;
 
@@ -46,9 +65,13 @@ const getArrayOrNothing = <T>(source: T | T[]): T[] | undefined => {
   return undefined;
 };
 
-const getPoints = (source: any) => {
+const getPoints = (source: unknown) => {
+  const points = trackPoint.or(z.array(trackPoint)).optional().parse(source);
+
+  const array = getArrayOrNothing(points)?.filter((item): item is TrackPoint => item !== undefined);
+
   return (
-    getArrayOrNothing(source)?.map((item) => {
+    array?.map((item) => {
       const hr = item?.extensions?.['gpxtpx:TrackPointExtension']?.['gpxtpx:hr'];
 
       return new Point(Number(item['@lat']), Number(item['@lon']), {
@@ -57,6 +80,7 @@ const getPoints = (source: any) => {
         name: item.name,
         sym: item.sym,
         type: item.type,
+        hr: hr ? Number(hr) : undefined,
         /* c8 ignore start */
         fix: item.fix ? Number(item.fix) : undefined,
         cmt: item.cmt,
@@ -71,7 +95,6 @@ const getPoints = (source: any) => {
         vdop: item.vdop ? Number(item.vdop) : undefined,
         geoidheight: item.geoidheight ? Number(item.geoidheight) : undefined,
         link: item.link ? new Link(item.link['@href']) : undefined,
-        hr: hr ? Number(hr) : undefined,
         /* c8 ignore stop */
       });
     }) || []
