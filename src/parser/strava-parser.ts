@@ -42,7 +42,6 @@ const trackPoint = z.object({
     })
     .optional(),
 });
-type TrackPoint = z.infer<typeof trackPoint>;
 
 const segmentSchema = z.object({
   trkpt: z.array(trackPoint),
@@ -68,7 +67,7 @@ const getArrayOrNothing = <T>(source: T | T[]): T[] | undefined => {
 const getPoints = (source: unknown) => {
   const points = trackPoint.or(z.array(trackPoint)).optional().parse(source);
 
-  const array = getArrayOrNothing(points)?.filter((item): item is TrackPoint => item !== undefined);
+  const array = getArrayOrNothing(points)?.filter(Boolean);
 
   return (
     array?.map((item) => {
@@ -106,14 +105,12 @@ const getRoutes = (source: unknown) => {
 
   const result = getArrayOrNothing(routes);
   if (result) {
-    return result
-      ?.filter((item): item is Route => item !== undefined)
-      .map((item) => {
-        return new Route({
-          name: item.name,
-          rtept: getPoints(item.rtept),
-        });
+    return result?.filter(Boolean).map((item) => {
+      return new Route({
+        name: item.name,
+        rtept: getPoints(item.rtept),
       });
+    });
   }
 };
 
@@ -122,11 +119,9 @@ const getSegments = (source: unknown) => {
 
   const result = getArrayOrNothing(segments);
   if (result) {
-    return result
-      ?.filter((item): item is Segment => item !== undefined)
-      .map((item) => {
-        return new Segment(getPoints(item.trkpt));
-      });
+    return result?.filter(Boolean).map((item) => {
+      return new Segment(getPoints(item.trkpt));
+    });
   }
 };
 
