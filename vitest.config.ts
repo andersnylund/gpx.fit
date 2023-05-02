@@ -25,6 +25,7 @@ export default defineConfig({
         'playwright/**',
         'vitest.config.ts',
         '**/*.test.*',
+        '**/*.d.ts',
       ],
       provider: 'c8',
     },
