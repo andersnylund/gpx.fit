@@ -97,8 +97,8 @@ devDependencies:
     specifier: ^4.1.7
     version: 4.1.7
   '@types/node':
-    specifier: 18.16.10
-    version: 18.16.10
+    specifier: 18.16.12
+    version: 18.16.12
   '@types/react':
     specifier: 18.2.6
     version: 18.2.6
@@ -155,7 +155,7 @@ devDependencies:
     version: 5.0.4
   vite:
     specifier: ^4.1.1
-    version: 4.1.1(@types/node@18.16.10)
+    version: 4.1.1(@types/node@18.16.12)
   vitest:
     specifier: ^0.31.0
     version: 0.31.0(jsdom@22.0.0)
@@ -837,7 +837,7 @@ packages:
       '@jest/schemas': 29.4.3
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       '@types/yargs': 17.0.24
       chalk: 4.1.2
     dev: true
@@ -1324,7 +1324,7 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       playwright-core: 1.30.0
     dev: true
 
@@ -1530,8 +1530,8 @@ packages:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
-  /@types/node@18.16.10:
-    resolution: {integrity: sha512-sMo3EngB6QkMBlB9rBe1lFdKSLqljyWPPWv6/FzSxh/IDlyVWSzE9RiF4eAuerQHybrWdqBgAGb03PM89qOasA==}
+  /@types/node@18.16.12:
+    resolution: {integrity: sha512-tIRrjbY9C277MOfP8M3zjMIhtMlUJ6YVqkGgLjz+74jVsdf4/UjC6Hku4+1N0BS0qyC0JAS6tJLUk9H6JUKviQ==}
 
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
@@ -1736,7 +1736,7 @@ packages:
       '@babel/plugin-transform-react-jsx-self': 7.21.0(@babel/core@7.21.4)
       '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.4)
       react-refresh: 0.14.0
-      vite: 4.1.1(@types/node@18.16.10)
+      vite: 4.1.1(@types/node@18.16.12)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3568,7 +3568,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.5.0
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       chalk: 4.1.2
       ci-info: 3.8.0
       graceful-fs: 4.2.10
@@ -5055,7 +5055,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-node@0.31.0(@types/node@18.16.10):
+  /vite-node@0.31.0(@types/node@18.16.12):
     resolution: {integrity: sha512-8x1x1LNuPvE2vIvkSB7c1mApX5oqlgsxzHQesYF7l5n1gKrEmrClIiZuOFbFDQcjLsmcWSwwmrWrcGWm9Fxc/g==}
     engines: {node: '>=v14.18.0'}
     hasBin: true
@@ -5065,7 +5065,7 @@ packages:
       mlly: 1.2.0
       pathe: 1.1.0
       picocolors: 1.0.0
-      vite: 4.1.1(@types/node@18.16.10)
+      vite: 4.1.1(@types/node@18.16.12)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -5076,7 +5076,7 @@ packages:
       - terser
     dev: true
 
-  /vite@4.1.1(@types/node@18.16.10):
+  /vite@4.1.1(@types/node@18.16.12):
     resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -5101,7 +5101,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
@@ -5143,7 +5143,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       '@vitest/expect': 0.31.0
       '@vitest/runner': 0.31.0
       '@vitest/snapshot': 0.31.0
@@ -5164,8 +5164,8 @@ packages:
       strip-literal: 1.0.1
       tinybench: 2.4.0
       tinypool: 0.5.0
-      vite: 4.1.1(@types/node@18.16.10)
-      vite-node: 0.31.0(@types/node@18.16.10)
+      vite: 4.1.1(@types/node@18.16.12)
+      vite-node: 0.31.0(@types/node@18.16.12)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -5325,7 +5325,7 @@ packages:
       '@oozcitak/dom': 1.15.10
       '@oozcitak/infra': 1.0.8
       '@oozcitak/util': 8.3.8
-      '@types/node': 18.16.10
+      '@types/node': 18.16.12
       js-yaml: 3.14.0
     dev: false
 
