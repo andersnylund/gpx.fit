@@ -8,8 +8,8 @@ dependencies:
     specifier: ^11.10.5
     version: 11.10.5(@babel/core@7.21.4)(@emotion/react@11.10.5)(@types/react@18.2.6)(react@18.2.0)
   '@fontsource/public-sans':
-    specifier: ^4.5.12
-    version: 4.5.12
+    specifier: ^5.0.0
+    version: 5.0.0
   '@mui/icons-material':
     specifier: ^5.11.9
     version: 5.11.9(@mui/material@5.11.9)(@types/react@18.2.6)(react@18.2.0)
@@ -777,8 +777,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/public-sans@4.5.12:
-    resolution: {integrity: sha512-sa6lr+lQQB1Iif2xyWZmcCbReV3dj6m0CNXw5xbDwKO4BPeZxz+G+Vy9zWdzhaKpjmK6Ap2wIn1x79XVcvMRtQ==}
+  /@fontsource/public-sans@5.0.0:
+    resolution: {integrity: sha512-p1rHeuvRbQ4aTiM+KYXEMETUhGy1zOHDK2uqGClTn8BARirTkLoz2nQ9xBN9qFVDmqJPzMLo6xBXCT1RJhOZbQ==}
     dev: false
 
   /@hapi/hoek@9.3.0:
