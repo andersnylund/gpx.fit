@@ -22,7 +22,7 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/public-sans": "^5.0.0",
     "@mui/icons-material": "^5.11.9",
-    "@mui/joy": "5.0.0-alpha.81",
+    "@mui/joy": "5.0.0-alpha.82",
     "@mui/material": "^5.11.9",
     "@reduxjs/toolkit": "^1.9.2",
     "gpx-builder": "^5.2.0",
