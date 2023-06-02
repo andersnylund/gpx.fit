@@ -35,8 +35,8 @@ jobs:
       - name: Install deps (with cache)
         run: pnpm install
 
-      - name: Install playwright
-        run: pnpm playwright install chromium
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Next.js cache
         uses: actions/cache@v3
@@ -54,7 +54,7 @@ jobs:
         run: pnpm test:unit
 
       - name: Upload test results
-        if: ${{ always() }}
+        if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
           name: test results
