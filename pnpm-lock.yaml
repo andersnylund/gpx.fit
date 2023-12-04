@@ -25,7 +25,7 @@ dependencies:
     version: 5.11.9(@emotion/react@11.10.5)(@emotion/styled@11.10.5)(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)
   '@reduxjs/toolkit':
     specifier: ^2.0.0
-    version: 2.0.0(react-redux@8.0.5)(react@18.2.0)
+    version: 2.0.0(react-redux@9.0.0)(react@18.2.0)
   gpx-builder:
     specifier: ^5.2.0
     version: 5.2.0
@@ -63,8 +63,8 @@ dependencies:
     specifier: ^4.2.0
     version: 4.2.0(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0)
   react-redux:
-    specifier: ^8.0.5
-    version: 8.0.5(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0)
+    specifier: ^9.0.0
+    version: 9.0.0(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0)
   remeda:
     specifier: ^1.8.0
     version: 1.8.0
@@ -1384,7 +1384,7 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@reduxjs/toolkit@2.0.0(react-redux@8.0.5)(react@18.2.0):
+  /@reduxjs/toolkit@2.0.0(react-redux@9.0.0)(react@18.2.0):
     resolution: {integrity: sha512-Kq/a+aO28adYdPoNEu9p800MYPKoUc0tlkYfv035Ief9J7MPq8JvmT7UdpYhvXsoMtOdt567KwZjc9H3Rf8yjg==}
     peerDependencies:
       react: ^16.9.0 || ^17.0.0 || ^18
@@ -1397,7 +1397,7 @@ packages:
     dependencies:
       immer: 10.0.3
       react: 18.2.0
-      react-redux: 8.0.5(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0)
+      react-redux: 9.0.0(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0)
       redux: 5.0.0
       redux-thunk: 3.0.1(redux@5.0.0)
       reselect: 5.0.0
@@ -1518,13 +1518,6 @@ packages:
   /@types/geojson@7946.0.10:
     resolution: {integrity: sha512-Nmh0K3iWQJzniTuPRcJn5hxXkfB1T1pgB89SBig5PlJQU5yocazeu4jATJlaA0GYFKWMqDdvYemoSnF2pXgLVA==}
     dev: true
-
-  /@types/hoist-non-react-statics@3.3.1:
-    resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
-    dependencies:
-      '@types/react': 18.2.41
-      hoist-non-react-statics: 3.3.2
-    dev: false
 
   /@types/istanbul-lib-coverage@2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
@@ -4651,15 +4644,15 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-redux@8.0.5(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0):
-    resolution: {integrity: sha512-Q2f6fCKxPFpkXt1qNRZdEDLlScsDWyrgSj0mliK59qU6W5gvBiKkdMEG2lJzhd1rCctf0hb6EtePPLZ2e0m1uw==}
+  /react-redux@9.0.0(@types/react@18.2.41)(react-dom@18.2.0)(react@18.2.0)(redux@5.0.0):
+    resolution: {integrity: sha512-/X/wiza+G2IXbz1Ow9Gs5qK7KNdoEnzzsR7ne7jcOWJMBOx9wvraPZwFddCs84xqwilvYaoENHowQMiW0axbsQ==}
     peerDependencies:
-      '@types/react': ^16.8 || ^17.0 || ^18.0
-      '@types/react-dom': ^16.8 || ^17.0 || ^18.0
-      react: ^16.8 || ^17.0 || ^18.0
-      react-dom: ^16.8 || ^17.0 || ^18.0
-      react-native: '>=0.59'
-      redux: ^4
+      '@types/react': ^18.2.41
+      '@types/react-dom': ^18.2.17
+      react: ^18.0
+      react-dom: ^18.0
+      react-native: '>=0.71'
+      redux: ^5.0.0-rc
     peerDependenciesMeta:
       '@types/react':
         optional: true
@@ -4672,14 +4665,10 @@ packages:
       redux:
         optional: true
     dependencies:
-      '@babel/runtime': 7.20.13
-      '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.2.41
       '@types/use-sync-external-store': 0.0.3
-      hoist-non-react-statics: 3.3.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-is: 18.2.0
       redux: 5.0.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
