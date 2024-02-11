@@ -15,7 +15,9 @@ export default defineConfig({
     coverage: {
       all: true,
       enabled: true,
-      '100': true,
+      thresholds: {
+        '100': true,
+      },
       exclude: [
         'src/config/**',
         '.next/',
@@ -27,7 +29,7 @@ export default defineConfig({
         '**/*.test.*',
         '**/*.d.ts',
       ],
-      provider: 'c8',
+      provider: 'v8',
     },
   },
 });
