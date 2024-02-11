@@ -13,7 +13,7 @@ describe('<AddTestRoute />', () => {
     render(
       <TestProvider store={store}>
         <AddTestRoute />
-      </TestProvider>
+      </TestProvider>,
     );
     await userEvent.click(screen.getByText('Test'));
     expect(dispatch).toHaveBeenCalledWith(setRoute(testRoute));
