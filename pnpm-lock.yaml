@@ -90,7 +90,7 @@ devDependencies:
     version: 14.4.3(@testing-library/dom@9.3.4)
   '@total-typescript/ts-reset':
     specifier: ^0.5.0
-    version: 0.5.0
+    version: 0.5.1
   '@types/leaflet':
     specifier: ^1.9.0
     version: 1.9.0
@@ -1688,8 +1688,8 @@ packages:
       '@testing-library/dom': 9.3.4
     dev: true
 
-  /@total-typescript/ts-reset@0.5.0:
-    resolution: {integrity: sha512-Q0vtuArmLzP5YSo2Z1DWoQjgH/Fth32bbjDFmXVra4SvYW3LSxnfDOtNsbhi+hEC9pobT7j1fw/zCf+WXAeQ2w==}
+  /@total-typescript/ts-reset@0.5.1:
+    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
     dev: true
 
   /@types/aria-query@5.0.1:
