@@ -99,7 +99,7 @@ devDependencies:
     version: 4.0.9
   '@types/lodash.throttle':
     specifier: ^4.1.7
-    version: 4.1.7
+    version: 4.1.9
   '@types/node':
     specifier: 20.11.20
     version: 20.11.20
@@ -1780,14 +1780,10 @@ packages:
       '@types/lodash': 4.14.202
     dev: true
 
-  /@types/lodash.throttle@4.1.7:
-    resolution: {integrity: sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==}
+  /@types/lodash.throttle@4.1.9:
+    resolution: {integrity: sha512-PCPVfpfueguWZQB7pJQK890F2scYKoDUL3iM522AptHWn7d5NQmeS/LTEHIcLr5PaTzl3dK2Z0xSUHHTHwaL5g==}
     dependencies:
-      '@types/lodash': 4.14.191
-    dev: true
-
-  /@types/lodash@4.14.191:
-    resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+      '@types/lodash': 4.14.202
     dev: true
 
   /@types/lodash@4.14.202:
