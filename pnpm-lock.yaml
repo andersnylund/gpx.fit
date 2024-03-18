@@ -67,7 +67,7 @@ dependencies:
     version: 9.1.0(@types/react@18.2.67)(react@18.2.0)(redux@5.0.1)
   remeda:
     specifier: ^1.8.0
-    version: 1.51.0
+    version: 1.53.0
   xmlbuilder2:
     specifier: ^3.0.2
     version: 3.1.1
@@ -5013,8 +5013,8 @@ packages:
       set-function-name: 2.0.2
     dev: true
 
-  /remeda@1.51.0:
-    resolution: {integrity: sha512-FdmDEGwOAg2JcD5uBNdhYv3ywAiv64tSJqPxh0VPYbuWn4WaRq0AHxKbao5xzJ/3mdFTGlEoKFAfR33eWoKQ4Q==}
+  /remeda@1.53.0:
+    resolution: {integrity: sha512-zZEHGfjQD8uGU+I33kEX5tvLIzcrT81kuw0XUxfwmml/TvoGAexJ1m9PmpQaK16dQKsj1M17AEQlvy6jPxqlKQ==}
     dev: false
 
   /requires-port@1.0.0:
