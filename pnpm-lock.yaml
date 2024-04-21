@@ -13,7 +13,7 @@ dependencies:
     version: 11.11.5(@emotion/react@11.11.4)(@types/react@18.2.79)(react@18.2.0)
   '@fontsource/public-sans':
     specifier: ^5.0.0
-    version: 5.0.17
+    version: 5.0.18
   '@mui/icons-material':
     specifier: ^5.11.9
     version: 5.15.15(@mui/material@5.15.15)(@types/react@18.2.79)(react@18.2.0)
@@ -851,8 +851,8 @@ packages:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: false
 
-  /@fontsource/public-sans@5.0.17:
-    resolution: {integrity: sha512-s5qJhMelUX7faD9wOkBRaR24e9ZB9A/HolfAwMnJ9G+uMvnF7UF2hypBxtb30skeGgGw9LBpFAgk0bCd2v6TXg==}
+  /@fontsource/public-sans@5.0.18:
+    resolution: {integrity: sha512-dYx/ULF7pRkjBO1ncCwIRXWWmI2oCsMsWxheHgjtNANm4+prtfq3gdGy3KOsuNcAhEKn6BQeIyg0hFqeoTpAaQ==}
     dev: false
 
   /@hapi/hoek@9.3.0:
