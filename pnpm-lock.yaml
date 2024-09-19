@@ -143,8 +143,8 @@ devDependencies:
     specifier: ^4.6.0
     version: 4.6.0(eslint@9.10.0)
   jsdom:
-    specifier: ^24.0.0
-    version: 24.1.2
+    specifier: ^25.0.0
+    version: 25.0.0
   npm-run-all2:
     specifier: ^6.0.0
     version: 6.2.3
@@ -162,7 +162,7 @@ devDependencies:
     version: 5.4.6(@types/node@20.16.5)
   vitest:
     specifier: ^2.0.0
-    version: 2.1.1(@types/node@20.16.5)(jsdom@24.1.2)
+    version: 2.1.1(@types/node@20.16.5)(jsdom@25.0.0)
 
 packages:
 
@@ -1654,7 +1654,7 @@ packages:
       dom-accessibility-api: 0.5.16
       lodash: 4.17.21
       redent: 3.0.0
-      vitest: 2.1.1(@types/node@20.16.5)(jsdom@24.1.2)
+      vitest: 2.1.1(@types/node@20.16.5)(jsdom@25.0.0)
     dev: true
 
   /@testing-library/react@16.0.0(@testing-library/dom@10.4.0)(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0):
@@ -2072,7 +2072,7 @@ packages:
       std-env: 3.7.0
       test-exclude: 7.0.1
       tinyrainbow: 1.2.0
-      vitest: 2.1.1(@types/node@20.16.5)(jsdom@24.1.2)
+      vitest: 2.1.1(@types/node@20.16.5)(jsdom@25.0.0)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4127,8 +4127,8 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsdom@24.1.2:
-    resolution: {integrity: sha512-Fzeg0F93nMZ/dJncmxsXqL7oU/RBvE33RAvr+8otVU9719wHEyV9bUoIfylWWKiuARRV/6tHLX/0W1pe2IixsA==}
+  /jsdom@25.0.0:
+    resolution: {integrity: sha512-OhoFVT59T7aEq75TVw9xxEfkXgacpqAhQaYgP9y/fDqWQCMB/b1H66RfmPm/MaeaAIU9nDwMOVTlPN51+ao6CQ==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -5634,7 +5634,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@2.1.1(@types/node@20.16.5)(jsdom@24.1.2):
+  /vitest@2.1.1(@types/node@20.16.5)(jsdom@25.0.0):
     resolution: {integrity: sha512-97We7/VC0e9X5zBVkvt7SGQMGrRtn3KtySFQG5fpaMlS+l62eeXRQO633AYhSTC3z7IMebnPPNjGXVGNRFlxBA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -5669,7 +5669,7 @@ packages:
       '@vitest/utils': 2.1.1
       chai: 5.1.1
       debug: 4.3.7
-      jsdom: 24.1.2
+      jsdom: 25.0.0
       magic-string: 0.30.11
       pathe: 1.1.2
       std-env: 3.7.0
