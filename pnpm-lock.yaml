@@ -66,8 +66,8 @@ dependencies:
     specifier: ^9.0.0
     version: 9.1.2(@types/react@18.3.12)(react@18.3.1)(redux@5.0.1)
   remeda:
-    specifier: ^1.8.0
-    version: 1.61.0
+    specifier: ^2.0.0
+    version: 2.16.0
   xmlbuilder2:
     specifier: ^3.0.2
     version: 3.1.1
@@ -5123,8 +5123,10 @@ packages:
       set-function-name: 2.0.2
     dev: true
 
-  /remeda@1.61.0:
-    resolution: {integrity: sha512-caKfSz9rDeSKBQQnlJnVW3mbVdFgxgGWQKq1XlFokqjf+hQD5gxutLGTTY2A/x24UxVyJe9gH5fAkFI63ULw4A==}
+  /remeda@2.16.0:
+    resolution: {integrity: sha512-HOymkGg58HW4LT8MBEabQEdW76YsqcRNNFPXPrOrnYm+/9Pmk0b9fm8PKgQxoRPa6WDLnRM/LxTXkHdXf9Ab0w==}
+    dependencies:
+      type-fest: 4.26.1
     dev: false
 
   /reselect@5.1.1:
@@ -5709,6 +5711,11 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
     dev: true
+
+  /type-fest@4.26.1:
+    resolution: {integrity: sha512-yOGpmOAL7CkKe/91I5O3gPICmJNLJ1G4zFYVAsRHg7M64biSnPtRj0WNQt++bRkjYOqjWXrhnUw1utzmVErAdg==}
+    engines: {node: '>=16'}
+    dev: false
 
   /typed-array-buffer@1.0.2:
     resolution: {integrity: sha512-gEymJYKZtKXzzBzM4jqa9w6Q1Jjm7x2d+sh19AdsD4wqnMPDYyvwpsIc2Q/835kHuo3BEQ7CjelGhfTsoBb2MQ==}
