@@ -28,7 +28,7 @@ dependencies:
     version: 2.3.0(react-redux@9.1.2)(react@18.3.1)
   gpx-builder:
     specifier: ^5.2.0
-    version: 5.2.0
+    version: 5.3.0
   immer:
     specifier: ^10.0.0
     version: 10.1.1
@@ -395,13 +395,6 @@ packages:
       '@babel/helper-plugin-utils': 7.25.7
     dev: true
 
-  /@babel/runtime@7.21.0:
-    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
-
   /@babel/runtime@7.22.6:
     resolution: {integrity: sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==}
     engines: {node: '>=6.9.0'}
@@ -441,7 +434,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: true
 
   /@babel/template@7.25.0:
     resolution: {integrity: sha512-aOOgh1/5XzKvg1jvVz7AVrx2piJ2XBi227DHmbY6y+bM9H2FlN+IfecYu4Xl0cNiiVejlsCri89LUsbj8vJD9Q==}
@@ -1357,7 +1349,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.25.9
       '@mui/utils': 5.16.6(@types/react@18.3.12)(react@18.3.1)
       '@types/react': 18.3.12
       prop-types: 15.8.1
@@ -1394,7 +1386,7 @@ packages:
       '@emotion/styled':
         optional: true
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.25.9
       '@emotion/cache': 11.13.1
       '@emotion/react': 11.13.3(@types/react@18.3.12)(react@18.3.1)
       '@emotion/styled': 11.13.0(@emotion/react@11.13.3)(@types/react@18.3.12)(react@18.3.1)
@@ -1533,7 +1525,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.25.9
       '@mui/types': 7.2.18(@types/react@18.3.12)
       '@types/prop-types': 15.7.13
       '@types/react': 18.3.12
@@ -3843,10 +3835,10 @@ packages:
       get-intrinsic: 1.2.4
     dev: true
 
-  /gpx-builder@5.2.0:
-    resolution: {integrity: sha512-bigtydAL+ef8dawY4cmH/GuDxzIjhIGTPozuwBiuPY7j7+y0UYUkPblveFNpgOvRNyqPm4LpPJkSuMprl2LpOA==}
+  /gpx-builder@5.3.0:
+    resolution: {integrity: sha512-L/nLZszOVyRsgMZi84ObZnJSvUeI5NsyBPZz74y8W9vC9Gh+muAbzowRAidpoEyVmLxql+DDpKxnSfEfanEy6w==}
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.25.9
       xmlbuilder2: 3.1.1
     dev: false
 
