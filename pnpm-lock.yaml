@@ -55,7 +55,7 @@ dependencies:
     version: 18.3.1(react@18.3.1)
   react-dropzone:
     specifier: ^14.2.3
-    version: 14.3.4(react@18.3.1)
+    version: 14.3.5(react@18.3.1)
   react-is:
     specifier: ^18.2.0
     version: 18.3.1
@@ -4997,8 +4997,8 @@ packages:
       react: 18.3.1
       scheduler: 0.23.2
 
-  /react-dropzone@14.3.4(react@18.3.1):
-    resolution: {integrity: sha512-UwbhxVOLIajIIOTDb+jf58loAzKH+iK5EgTbUOBEbnOfd7lxk8LnNMZxmixhaxjox5ysZJYm42TcmuTrJ7dKwg==}
+  /react-dropzone@14.3.5(react@18.3.1):
+    resolution: {integrity: sha512-9nDUaEEpqZLOz5v5SUcFA0CjM4vq8YbqO0WRls+EYT7+DvxUdzDPKNCPLqGfj3YL9MsniCLCD4RFA6M95V6KMQ==}
     engines: {node: '>= 10.13'}
     peerDependencies:
       react: '>= 16.8 || 18.0.0'
