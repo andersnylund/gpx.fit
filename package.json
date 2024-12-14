@@ -36,7 +36,7 @@
     "react-dom": "^19.0.0",
     "react-dropzone": "^14.2.3",
     "react-is": "^19.0.0",
-    "react-leaflet": "^4.2.0",
+    "react-leaflet": "^5.0.0",
     "react-redux": "^9.0.0",
     "remeda": "^1.8.0",
     "xmlbuilder2": "^3.0.2",
