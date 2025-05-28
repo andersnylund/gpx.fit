@@ -28,7 +28,7 @@ dependencies:
     version: 2.7.0(react-redux@9.2.0)(react@19.1.0)
   gpx-builder:
     specifier: ^5.2.0
-    version: 5.2.0
+    version: 5.6.0
   immer:
     specifier: ^10.0.0
     version: 10.1.1
@@ -333,13 +333,6 @@ packages:
       '@babel/helper-plugin-utils': 7.26.5
     dev: true
 
-  /@babel/runtime@7.21.0:
-    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
-
   /@babel/runtime@7.22.6:
     resolution: {integrity: sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==}
     engines: {node: '>=6.9.0'}
@@ -362,6 +355,11 @@ packages:
 
   /@babel/runtime@7.27.1:
     resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
+    engines: {node: '>=6.9.0'}
+    dev: false
+
+  /@babel/runtime@7.27.3:
+    resolution: {integrity: sha512-7EYtGezsdiDMyY80+65EzwiGmcJqpmcZCojSXaRgdrBaGtWTgDZKq69cPIVped6MkIM78cTQ2GOiEYjwOlG4xw==}
     engines: {node: '>=6.9.0'}
 
   /@babel/template@7.27.0:
@@ -1324,7 +1322,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.3
       '@mui/utils': 5.17.1(@types/react@19.1.2)(react@19.1.0)
       '@types/react': 19.1.2
       prop-types: 15.8.1
@@ -1361,7 +1359,7 @@ packages:
       '@emotion/styled':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.3
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@19.1.2)(react@19.1.0)
       '@emotion/styled': 11.14.0(@emotion/react@11.14.0)(@types/react@19.1.2)(react@19.1.0)
@@ -1512,7 +1510,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.3
       '@mui/types': 7.2.24(@types/react@19.1.2)
       '@types/prop-types': 15.7.14
       '@types/react': 19.1.2
@@ -1542,8 +1540,8 @@ packages:
       react-is: 19.1.0
     dev: false
 
-  /@napi-rs/wasm-runtime@0.2.9:
-    resolution: {integrity: sha512-OKRBiajrrxB9ATokgEQoG87Z25c67pCpYcCwmXYX8PBftC9pBfN18gnm/fh1wurSLEKIAt+QRFLFCQISrb66Jg==}
+  /@napi-rs/wasm-runtime@0.2.10:
+    resolution: {integrity: sha512-bCsCyeZEwVErsGmyPNSzwfwFn4OdxBj0mmv6hOFucB/k81Ojdu68RbZdxYsRQUPc9l6SU5F/cG+bXgWs3oUgsQ==}
     requiresBuild: true
     dependencies:
       '@emnapi/core': 1.4.3
@@ -1954,7 +1952,7 @@ packages:
     engines: {node: '>=18'}
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/runtime': 7.27.1
+      '@babel/runtime': 7.27.3
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       chalk: 4.1.2
@@ -2396,7 +2394,7 @@ packages:
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 0.2.9
+      '@napi-rs/wasm-runtime': 0.2.10
     dev: true
     optional: true
 
@@ -4224,10 +4222,10 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /gpx-builder@5.2.0:
-    resolution: {integrity: sha512-bigtydAL+ef8dawY4cmH/GuDxzIjhIGTPozuwBiuPY7j7+y0UYUkPblveFNpgOvRNyqPm4LpPJkSuMprl2LpOA==}
+  /gpx-builder@5.6.0:
+    resolution: {integrity: sha512-KLsYZsWk5MbQAXOi4L3jFP58Lyu4feU0ewuB4eXxmE6AIGnb/nurDsf8wr2+EyQY1ju4PoG2p7mhrAtrMGyntQ==}
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.27.3
       xmlbuilder2: 3.1.1
     dev: false
 
