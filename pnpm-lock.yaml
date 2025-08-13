@@ -73,7 +73,7 @@ dependencies:
     version: 3.1.1
   zod:
     specifier: ^3.20.6
-    version: 3.24.4
+    version: 3.25.76
 
 devDependencies:
   '@playwright/test':
@@ -6816,6 +6816,6 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zod@3.24.4:
-    resolution: {integrity: sha512-OdqJE9UDRPwWsrHjLN2F8bPxvwJBK22EHLWtanu0LSYr5YqzsaaW3RMgmjwr8Rypg5k+meEJdSPXJZXE/yqOMg==}
+  /zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
     dev: false
