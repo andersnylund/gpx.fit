@@ -28,7 +28,7 @@ dependencies:
     version: 2.12.0(react-redux@9.3.0)(react@19.2.8)
   gpx-builder:
     specifier: ^5.2.0
-    version: 5.2.0
+    version: 5.6.0
   immer:
     specifier: ^10.0.0
     version: 10.2.0
@@ -381,13 +381,6 @@ packages:
       '@babel/helper-plugin-utils': 7.27.1
     dev: true
 
-  /@babel/runtime@7.21.0:
-    resolution: {integrity: sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-    dev: false
-
   /@babel/runtime@7.22.6:
     resolution: {integrity: sha512-wDb5pWm4WDdF6LFUde3Jl8WzPA+3ZbxYqkC6xAXuD3irdEHN1k0NfTRrJD8ZD378SJ61miMLCqIOXYhd8x+AJQ==}
     engines: {node: '>=6.9.0'}
@@ -416,7 +409,6 @@ packages:
   /@babel/runtime@7.29.7:
     resolution: {integrity: sha512-Nq8OhGWiZIZGV6hLHoyAKLLcJihP/xFeBMGJoUrxTX2psI8dCifzLhZISFb+VWS3wFMRDmCGw5R+dOySCqPLhw==}
     engines: {node: '>=6.9.0'}
-    dev: true
 
   /@babel/template@7.27.2:
     resolution: {integrity: sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==}
@@ -1523,7 +1515,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.29.7
       '@mui/utils': 5.17.1(@types/react@19.2.18)(react@19.2.8)
       '@types/react': 19.2.18
       prop-types: 15.8.1
@@ -1560,7 +1552,7 @@ packages:
       '@emotion/styled':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.29.7
       '@emotion/cache': 11.14.0
       '@emotion/react': 11.14.0(@types/react@19.2.18)(react@19.2.8)
       '@emotion/styled': 11.14.1(@emotion/react@11.14.0)(@types/react@19.2.18)(react@19.2.8)
@@ -1711,7 +1703,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.29.7
       '@mui/types': 7.2.24(@types/react@19.2.18)
       '@types/prop-types': 15.7.15
       '@types/react': 19.2.18
@@ -4491,10 +4483,10 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /gpx-builder@5.2.0:
-    resolution: {integrity: sha512-bigtydAL+ef8dawY4cmH/GuDxzIjhIGTPozuwBiuPY7j7+y0UYUkPblveFNpgOvRNyqPm4LpPJkSuMprl2LpOA==}
+  /gpx-builder@5.6.0:
+    resolution: {integrity: sha512-KLsYZsWk5MbQAXOi4L3jFP58Lyu4feU0ewuB4eXxmE6AIGnb/nurDsf8wr2+EyQY1ju4PoG2p7mhrAtrMGyntQ==}
     dependencies:
-      '@babel/runtime': 7.21.0
+      '@babel/runtime': 7.29.7
       xmlbuilder2: 3.1.1
     dev: false
 
